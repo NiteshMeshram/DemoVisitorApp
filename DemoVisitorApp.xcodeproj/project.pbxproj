@@ -15,6 +15,9 @@
 		00CE48D1204D23E1008FC9DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CE48CF204D23E1008FC9DA /* LaunchScreen.storyboard */; };
 		00CE48DC204D23E1008FC9DA /* DemoVisitorAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE48DB204D23E1008FC9DA /* DemoVisitorAppTests.swift */; };
 		00CE48E7204D23E1008FC9DA /* DemoVisitorAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE48E6204D23E1008FC9DA /* DemoVisitorAppUITests.swift */; };
+		22FDB142205EB4C9003A860A /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDB141205EB4C9003A860A /* CompanyViewController.swift */; };
+		22FDB144205EB4EC003A860A /* PurposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDB143205EB4EC003A860A /* PurposeViewController.swift */; };
+		22FDB146205EB50B003A860A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDB145205EB50B003A860A /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		00CE48E2204D23E1008FC9DA /* DemoVisitorAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoVisitorAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CE48E6204D23E1008FC9DA /* DemoVisitorAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoVisitorAppUITests.swift; sourceTree = "<group>"; };
 		00CE48E8204D23E1008FC9DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22FDB141205EB4C9003A860A /* CompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyViewController.swift; sourceTree = "<group>"; };
+		22FDB143205EB4EC003A860A /* PurposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurposeViewController.swift; sourceTree = "<group>"; };
+		22FDB145205EB50B003A860A /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,9 @@
 				00CE48CF204D23E1008FC9DA /* LaunchScreen.storyboard */,
 				00CE48D2204D23E1008FC9DA /* Info.plist */,
 				00CE48CA204D23E1008FC9DA /* DemoVisitorApp.xcdatamodeld */,
+				22FDB141205EB4C9003A860A /* CompanyViewController.swift */,
+				22FDB143205EB4EC003A860A /* PurposeViewController.swift */,
+				22FDB145205EB50B003A860A /* UserViewController.swift */,
 			);
 			path = DemoVisitorApp;
 			sourceTree = "<group>";
@@ -262,6 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22FDB144205EB4EC003A860A /* PurposeViewController.swift in Sources */,
+				22FDB146205EB50B003A860A /* UserViewController.swift in Sources */,
+				22FDB142205EB4C9003A860A /* CompanyViewController.swift in Sources */,
 				00CE48CC204D23E1008FC9DA /* DemoVisitorApp.xcdatamodeld in Sources */,
 				00CE48C6204D23E1008FC9DA /* HomeViewController.swift in Sources */,
 				00CE48C4204D23E1008FC9DA /* AppDelegate.swift in Sources */,
@@ -367,7 +379,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -418,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -433,6 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X5E35DL2Y9;
 				INFOPLIST_FILE = DemoVisitorApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.v2solutions.DemoVisitorApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -448,6 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X5E35DL2Y9;
 				INFOPLIST_FILE = DemoVisitorApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.v2solutions.DemoVisitorApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
