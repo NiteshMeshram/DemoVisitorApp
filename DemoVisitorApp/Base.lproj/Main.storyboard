@@ -27,20 +27,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter you 10 digit " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsR-Ul-yIm">
-                                <rect key="frame" x="288" y="353" width="192" height="45"/>
+                                <rect key="frame" x="288" y="350" width="192" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxF-gj-9n8">
-                                <rect key="frame" x="9" y="88" width="58" height="51"/>
+                                <rect key="frame" x="18" y="38" width="58" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="arrow_left"/>
                                 <state key="disabled" image="arrow_left_disabled"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDq-By-xDE">
-                                <rect key="frame" x="701" y="88" width="58" height="51"/>
+                                <rect key="frame" x="692" y="38" width="58" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="arrow_right"/>
                                 <state key="disabled" image="arrow_right_disabled"/>
@@ -49,7 +49,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33y-Fy-Nfd">
-                                <rect key="frame" x="246" y="570" width="276" height="65"/>
+                                <rect key="frame" x="248" y="582" width="276" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="active_btn"/>
                             </button>
@@ -113,7 +113,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="demo-logo" translatesAutoresizingMaskIntoConstraints="NO" id="fEv-XB-uMh">
-                                <rect key="frame" x="339" y="191" width="53" height="53"/>
+                                <rect key="frame" x="339" y="210" width="53" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="XYZ Company" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iG1-y6-hXh">
@@ -129,7 +129,7 @@
                                 <state key="normal" image="checkout_btn"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfh-iU-MeK" userLabel="BackButton">
-                                <rect key="frame" x="9" y="89" width="58" height="51"/>
+                                <rect key="frame" x="18" y="38" width="58" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="arrow_left"/>
                                 <state key="disabled" image="arrow_left_disabled"/>
@@ -138,7 +138,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsZ-ti-OeH">
-                                <rect key="frame" x="701" y="89" width="58" height="51"/>
+                                <rect key="frame" x="692" y="38" width="58" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="arrow_right"/>
                                 <state key="disabled" image="arrow_right_disabled"/>
@@ -210,7 +210,7 @@
                                 <state key="normal" image="personalvisit"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s46-7P-LSB" userLabel="BackButton">
-                                <rect key="frame" x="9" y="86" width="58" height="51"/>
+                                <rect key="frame" x="18" y="38" width="58" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="arrow_left"/>
                                 <state key="disabled" image="arrow_left_disabled"/>
@@ -219,7 +219,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6g-6c-CAW">
-                                <rect key="frame" x="701" y="86" width="58" height="51"/>
+                                <rect key="frame" x="692" y="38" width="58" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="arrow_right"/>
                                 <state key="disabled" image="arrow_right_disabled"/>
@@ -324,7 +324,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wl-dP-KoM" userLabel="BackButton">
-                                <rect key="frame" x="9" y="69" width="58" height="51"/>
+                                <rect key="frame" x="18" y="38" width="58" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="arrow_left"/>
                                 <state key="disabled" image="arrow_left_disabled"/>
@@ -333,7 +333,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtj-dL-CWH">
-                                <rect key="frame" x="701" y="69" width="58" height="51"/>
+                                <rect key="frame" x="692" y="38" width="58" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="arrow_right"/>
                                 <state key="disabled" image="arrow_right_disabled"/>
@@ -379,10 +379,9 @@
         <!--Navigation Controller-->
         <scene sceneID="Xxs-gF-CY4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C2m-Ka-Fam" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="C2m-Ka-Fam" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jmU-lA-905">
-                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
