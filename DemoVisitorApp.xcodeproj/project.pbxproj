@@ -15,6 +15,9 @@
 		00CE48D1204D23E1008FC9DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CE48CF204D23E1008FC9DA /* LaunchScreen.storyboard */; };
 		00CE48DC204D23E1008FC9DA /* DemoVisitorAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE48DB204D23E1008FC9DA /* DemoVisitorAppTests.swift */; };
 		00CE48E7204D23E1008FC9DA /* DemoVisitorAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE48E6204D23E1008FC9DA /* DemoVisitorAppUITests.swift */; };
+		2227E2B32086707E003EAD0B /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E2B22086707E003EAD0B /* AgreementViewController.swift */; };
+		2227E2B52086713A003EAD0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E2B42086713A003EAD0B /* ProfileViewController.swift */; };
+		2227E2B720867185003EAD0B /* ThankyouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E2B620867185003EAD0B /* ThankyouViewController.swift */; };
 		22FDB142205EB4C9003A860A /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDB141205EB4C9003A860A /* CompanyViewController.swift */; };
 		22FDB144205EB4EC003A860A /* PurposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDB143205EB4EC003A860A /* PurposeViewController.swift */; };
 		22FDB146205EB50B003A860A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDB145205EB50B003A860A /* UserViewController.swift */; };
@@ -52,6 +55,9 @@
 		00CE48E2204D23E1008FC9DA /* DemoVisitorAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoVisitorAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CE48E6204D23E1008FC9DA /* DemoVisitorAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoVisitorAppUITests.swift; sourceTree = "<group>"; };
 		00CE48E8204D23E1008FC9DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2227E2B22086707E003EAD0B /* AgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
+		2227E2B42086713A003EAD0B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2227E2B620867185003EAD0B /* ThankyouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankyouViewController.swift; sourceTree = "<group>"; };
 		22FDB141205EB4C9003A860A /* CompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyViewController.swift; sourceTree = "<group>"; };
 		22FDB143205EB4EC003A860A /* PurposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurposeViewController.swift; sourceTree = "<group>"; };
 		22FDB145205EB50B003A860A /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +121,9 @@
 				22FDB141205EB4C9003A860A /* CompanyViewController.swift */,
 				22FDB143205EB4EC003A860A /* PurposeViewController.swift */,
 				22FDB145205EB50B003A860A /* UserViewController.swift */,
+				2227E2B22086707E003EAD0B /* AgreementViewController.swift */,
+				2227E2B42086713A003EAD0B /* ProfileViewController.swift */,
+				2227E2B620867185003EAD0B /* ThankyouViewController.swift */,
 			);
 			path = DemoVisitorApp;
 			sourceTree = "<group>";
@@ -275,7 +284,10 @@
 				22FDB146205EB50B003A860A /* UserViewController.swift in Sources */,
 				22FDB142205EB4C9003A860A /* CompanyViewController.swift in Sources */,
 				00CE48CC204D23E1008FC9DA /* DemoVisitorApp.xcdatamodeld in Sources */,
+				2227E2B720867185003EAD0B /* ThankyouViewController.swift in Sources */,
 				00CE48C6204D23E1008FC9DA /* HomeViewController.swift in Sources */,
+				2227E2B32086707E003EAD0B /* AgreementViewController.swift in Sources */,
+				2227E2B52086713A003EAD0B /* ProfileViewController.swift in Sources */,
 				00CE48C4204D23E1008FC9DA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

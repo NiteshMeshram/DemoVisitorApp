@@ -25,7 +25,7 @@ class UserViewController: UIViewController {
     
     @IBAction func nextButtonClick(_ sender: Any) {
         
-//        performSegue(withIdentifier: "chekInChecOutSegue", sender: nil)
+        performSegue(withIdentifier: "agreementSegue", sender: nil)
     }
     
     @IBAction func backButtonClick(_ sender: Any) {
