@@ -23,11 +23,16 @@ class CompanyViewController: UIViewController {
     
     @IBAction func nextButtonClick(_ sender: Any) {
         
-        performSegue(withIdentifier: "purposeSegue", sender: nil)
+//        performSegue(withIdentifier: "purposeSegue", sender: nil)
     }
     
     @IBAction func backButtonClick(_ sender: Any) {
 //        _ = navigationController?.popToRootViewController(animated: true)
         navigationController?.popViewController(animated: true)
+    }
+    @IBAction func checkInButtonClicked(_ sender: Any) {
+        performSegue(withIdentifier: "purposeSegue", sender: nil)
+    }
+    @IBAction func checkOutButtonClicked(_ sender: Any) {
     }
 }

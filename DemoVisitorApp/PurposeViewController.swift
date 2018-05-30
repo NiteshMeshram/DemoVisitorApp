@@ -24,7 +24,7 @@ class PurposeViewController: UIViewController {
     
     @IBAction func nextButtonClick(_ sender: Any) {
         
-        performSegue(withIdentifier: "userSegue", sender: nil)
+//        performSegue(withIdentifier: "userSegue", sender: nil)
     }
     
     @IBAction func backButtonClick(_ sender: Any) {
@@ -32,4 +32,7 @@ class PurposeViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func selectedPurpose(){
+        performSegue(withIdentifier: "userSegue", sender: nil)
+    }
 }
