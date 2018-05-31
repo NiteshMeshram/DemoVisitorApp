@@ -13,13 +13,25 @@ import UIKit
 class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchUser: UISearchBar!
-    
+    @IBOutlet weak var userOneButton: UIButton!
+    @IBOutlet weak var userList: UIButton!
+    var comingFrom: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let textFieldInsideSearchBar = self.searchUser.value(forKey: "searchField") as! UITextField
         textFieldInsideSearchBar.leftViewMode = UITextFieldViewMode.never
         self.customizeSearchBar()
+        
+        if comingFrom == "checkOut" {
+            
+            userList.isHidden = false
+            userOneButton.isHidden = true
+        }
+        else {
+            userList.isHidden = true
+            userOneButton.isHidden = false
+        }
         
     }
     
@@ -33,6 +45,16 @@ class SearchViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func userOneSelected(_ sender: Any) {
+//
+        performSegue(withIdentifier: "thankYouSegue", sender: nil)
+
+    }
+    
+    @IBAction func userListSelected(_ sender: Any) {
+    
+        performSegue(withIdentifier: "thankYouSegue", sender: nil)
+    }
     
     func customizeSearchBar()
     {

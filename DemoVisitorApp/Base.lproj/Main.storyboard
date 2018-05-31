@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C2m-Ka-Fam">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C2m-Ka-Fam">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -79,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="190.625" y="37.5"/>
         </scene>
-        <!--Welcome View Controller-->
+        <!--CompanyViewController-->
         <scene sceneID="Wxa-la-acZ">
             <objects>
-                <viewController id="l7C-If-u4o" userLabel="Welcome View Controller" customClass="CompanyViewController" customModule="DemoVisitorApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="l7C-If-u4o" userLabel="CompanyViewController" customClass="CompanyViewController" customModule="DemoVisitorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cmB-qc-iuo">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -694,7 +700,7 @@ know that you are here.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGC-ds-m3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5569" y="47"/>
+            <point key="canvasLocation" x="3035" y="816"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="uKF-QW-opT">
@@ -766,7 +772,7 @@ know that you are here.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="grs-ed-rUY">
+                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="grs-ed-rUY">
                                 <rect key="frame" x="105" y="517" width="550" height="323"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -797,6 +803,22 @@ know that you are here.</string>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWa-nV-XZe" userLabel="UserOneButton">
+                                <rect key="frame" x="105" y="518" width="281" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="UserOne"/>
+                                <connections>
+                                    <action selector="userOneSelected:" destination="Udb-w2-l4Q" eventType="touchUpInside" id="cgL-sr-y6s"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdg-37-jK7" userLabel="UserListButton">
+                                <rect key="frame" x="105" y="518" width="561" height="210"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="UserList"/>
+                                <connections>
+                                    <action selector="userListSelected:" destination="Udb-w2-l4Q" eventType="touchUpInside" id="IYq-XA-hQ3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="i8P-CR-I6O"/>
@@ -804,6 +826,9 @@ know that you are here.</string>
                     <navigationItem key="navigationItem" id="euD-wH-vNx"/>
                     <connections>
                         <outlet property="searchUser" destination="CFK-8O-vUz" id="ne7-33-8xQ"/>
+                        <outlet property="userList" destination="xdg-37-jK7" id="S3P-oE-XIf"/>
+                        <outlet property="userOneButton" destination="hWa-nV-XZe" id="qWc-27-sU4"/>
+                        <segue destination="uBE-vH-E53" kind="push" identifier="thankYouSegue" id="L6t-Bb-8I7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nze-ot-naP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -816,6 +841,8 @@ know that you are here.</string>
         <image name="CameraBorder" width="383" height="383"/>
         <image name="ThankYouPageLine" width="1" height="1"/>
         <image name="Thankyou" width="29" height="45"/>
+        <image name="UserList" width="561" height="210"/>
+        <image name="UserOne" width="281" height="69"/>
         <image name="active_btn" width="276" height="65"/>
         <image name="arrow_left" width="58" height="51"/>
         <image name="arrow_left_disabled" width="58" height="51"/>
@@ -834,4 +861,7 @@ know that you are here.</string>
         <image name="personalvisit" width="164" height="139"/>
         <image name="vendor" width="164" height="139"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="L6t-Bb-8I7"/>
+    </inferredMetricsTieBreakers>
 </document>

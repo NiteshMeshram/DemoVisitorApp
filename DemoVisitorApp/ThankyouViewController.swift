@@ -29,7 +29,7 @@ class ThankyouViewController: UIViewController {
     
     @IBAction func backButtonClick(_ sender: Any) {
         
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
     }
     
 }

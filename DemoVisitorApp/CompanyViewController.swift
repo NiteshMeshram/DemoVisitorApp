@@ -11,6 +11,7 @@ import UIKit
 
 class CompanyViewController: UIViewController {
     
+    var comingFrom: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,8 +32,29 @@ class CompanyViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func checkInButtonClicked(_ sender: Any) {
+//        comingFrom = "checkIn"
         performSegue(withIdentifier: "purposeSegue", sender: nil)
     }
     @IBAction func checkOutButtonClicked(_ sender: Any) {
+        comingFrom = "checkOut"
+        performSegue(withIdentifier: "userSearchSegue", sender: nil)
+        
+    }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+////        let theDestination = (segue.destinationViewController as ViewController2)
+////        theDestination.Duration2 = Duration
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "purposeSegue"{
+            
+        }
+        if segue.identifier == "userSearchSegue"{
+            let theDestination = (segue.destination as! SearchViewController)
+            theDestination.comingFrom = comingFrom
+        }
+        
+        
     }
 }

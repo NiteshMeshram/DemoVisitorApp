@@ -15,6 +15,13 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { // change 2 to desired number of seconds
+            // Your code with delay
+//            performSegue(withIdentifier: "thankyouSegue", sender: nil)
+            self.performSegue(withIdentifier: "thankyouSegue", sender: nil)
+
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,7 +31,7 @@ class ProfileViewController: UIViewController {
     
     @IBAction func nextButtonClick(_ sender: Any) {
         
-                performSegue(withIdentifier: "thankyouSegue", sender: nil)
+//                performSegue(withIdentifier: "thankyouSegue", sender: nil)
     }
     
     @IBAction func backButtonClick(_ sender: Any) {
