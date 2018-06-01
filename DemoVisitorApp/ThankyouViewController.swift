@@ -15,6 +15,11 @@ class ThankyouViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { // change 2 to desired number of seconds
+            // Your code with delay
+            self.navigationController?.popToRootViewController(animated: true)
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {

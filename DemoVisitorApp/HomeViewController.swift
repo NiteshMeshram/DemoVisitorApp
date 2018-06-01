@@ -16,6 +16,11 @@ class HomeViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        self.navigationController!.viewControllers.removeAll()
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -27,6 +32,9 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "chekInChecOutSegue", sender: nil)
     }
     
-
+    @IBAction func activateNowClicked(_ sender: Any) {
+        performSegue(withIdentifier: "chekInChecOutSegue", sender: nil)
+    }
+    
 }
 
