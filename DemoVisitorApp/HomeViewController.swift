@@ -29,11 +29,13 @@ class HomeViewController: UIViewController {
 
     @IBAction func nextButtonClick(_ sender: Any) {
         
-        performSegue(withIdentifier: "chekInChecOutSegue", sender: nil)
+//        performSegue(withIdentifier: "chekInChecOutSegue", sender: nil)
     }
     
     @IBAction func activateNowClicked(_ sender: Any) {
-        performSegue(withIdentifier: "chekInChecOutSegue", sender: nil)
+//        performSegue(withIdentifier: "chekInChecOutSegue", sender: nil)
+        
+        self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
     }
     
 }
