@@ -23,13 +23,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroud" translatesAutoresizingMaskIntoConstraints="NO" id="ql3-Fp-XEL" userLabel="BackgroundImage">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroud" translatesAutoresizingMaskIntoConstraints="NO" id="ql3-Fp-XEL" userLabel="BackgroundImage">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter you 10 digit " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsR-Ul-yIm">
-                                <rect key="frame" x="288" y="350" width="192" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter you 10 digit " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsR-Ul-yIm">
+                                <rect key="frame" x="315" y="375" width="138.5" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -56,12 +54,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue-corner" translatesAutoresizingMaskIntoConstraints="NO" id="BDf-1G-cdk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue-corner" translatesAutoresizingMaskIntoConstraints="NO" id="BDf-1G-cdk">
                                 <rect key="frame" x="456" y="743" width="312" height="281"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="281" id="d4M-o5-hre"/>
+                                    <constraint firstAttribute="width" constant="312" id="ppn-kI-abk"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ql3-Fp-XEL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5qC-5R-Zwf"/>
+                            <constraint firstItem="AsR-Ul-yIm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="355" id="J9I-d3-2Lf"/>
+                            <constraint firstItem="ql3-Fp-XEL" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="V5F-6U-Ji0"/>
+                            <constraint firstItem="ql3-Fp-XEL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dNZ-wd-2Qg"/>
+                            <constraint firstItem="AsR-Ul-yIm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hzR-ey-zVu"/>
+                            <constraint firstItem="BDf-1G-cdk" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="khp-fr-rrI"/>
+                            <constraint firstItem="ql3-Fp-XEL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sic-EG-pO4"/>
+                            <constraint firstItem="BDf-1G-cdk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zEJ-gF-Vkt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="rhQ-Dd-YbZ"/>
@@ -231,7 +242,7 @@
                                     <action selector="selectedPurpose" destination="c93-nE-tP4" eventType="touchUpInside" id="KFm-4X-Vvq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please Select Purpose Of Your Visit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3c-LG-5Zv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please Select the Purpose of your Visit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3c-LG-5Zv">
                                 <rect key="frame" x="197" y="393" width="391" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
@@ -319,7 +330,7 @@
                                 <rect key="frame" x="456" y="743" width="312" height="281"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Complete The Feilds Below:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oz-gu-u6A">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Complete the Fields Below:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oz-gu-u6A">
                                 <rect key="frame" x="200" y="393" width="293" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -355,7 +366,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Person You Are Here To Meet" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIc-ZP-cfh">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Person you are here to meet" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIc-ZP-cfh">
                                 <rect key="frame" x="148" y="833" width="388" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
@@ -609,9 +620,11 @@ of the circle for a photo</string>
                                 <rect key="frame" x="345" y="163" width="53" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thanks for your visits. You have been checked out" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUS-dQ-oBd">
-                                <rect key="frame" x="234" y="361" width="300" height="100"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUS-dQ-oBd">
+                                <rect key="frame" x="184" y="361" width="431" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Thank you for visiting.
+You have been successfully checked out.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -636,7 +649,7 @@ of the circle for a photo</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGC-ds-m3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-95" y="1048"/>
+            <point key="canvasLocation" x="-95.3125" y="1047.65625"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="uKF-QW-opT">

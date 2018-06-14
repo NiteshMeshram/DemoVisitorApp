@@ -38,5 +38,30 @@ class HomeViewController: UIViewController {
         self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
     }
     
+    override public var traitCollection: UITraitCollection {
+        
+        if UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isPortrait {
+            
+            return UITraitCollection(traitsFrom: [UITraitCollection(horizontalSizeClass: .compact),
+                                                  UITraitCollection(verticalSizeClass: .regular)])
+            
+        }
+        return super.traitCollection
+    }
+    
 }
+
+//public class CustomTraitCollectionViewController: UIViewController {
+//
+//    override public var traitCollection: UITraitCollection {
+//
+//        if UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isPortrait {
+//
+//            return UITraitCollection(traitsFrom: [UITraitCollection(horizontalSizeClass: .compact),
+//                                           UITraitCollection(verticalSizeClass: .regular)])
+//
+//        }
+//        return super.traitCollection
+//    }
+//}
 
