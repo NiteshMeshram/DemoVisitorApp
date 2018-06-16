@@ -11,7 +11,7 @@ import Foundation
 
 import UIKit
 
-class UserViewController: UIViewController {
+class UserViewController: BaseviewController {
     
     @IBOutlet weak var personToMeetTextField: UITextField!
     @IBOutlet weak var companyTextField: UITextField!
@@ -19,10 +19,16 @@ class UserViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
     
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    
+    var initialOrientation = true
+    var isInPortrait = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.AdjustConstraint()
         
         let placeHolderColor = UIColor(red: 138.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1.0)
         
@@ -62,6 +68,47 @@ class UserViewController: UIViewController {
 
         navigationController?.popViewController(animated: true)
     }
+    
+//    override func viewWillLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        if initialOrientation {
+//            initialOrientation = false
+//            if view.frame.width > view.frame.height {
+//                isInPortrait = false
+//                self.topConstraint.constant = 130.00
+//            } else {
+//                isInPortrait = true
+//                self.topConstraint.constant = 00.00
+//            }
+//        } else {
+//            if view.orientationHasChanged(&isInPortrait) {
+//
+//                if isInPortrait{
+//                    self.topConstraint.constant = 130.00
+//                }
+//                else {
+//                    self.topConstraint.constant = 00.00
+//                }
+//            }
+//        }
+//    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+       self.AdjustConstraint()
+        
+    }
+    
+    func AdjustConstraint() {
+        if UIDevice.current.orientation.isPortrait {
+            self.topConstraint.constant = 130.00
+        }
+        else {
+            self.topConstraint.constant = 00.00
+        }
+    }
+    
     
 }
 

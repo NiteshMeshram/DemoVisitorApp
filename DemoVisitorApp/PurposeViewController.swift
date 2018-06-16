@@ -10,10 +10,15 @@ import Foundation
 
 import UIKit
 
-class PurposeViewController: UIViewController {
+class PurposeViewController: BaseviewController {
     
+    var initialOrientation = true
+    var isInPortrait = false
+    
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.AdjustConstraint()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -35,4 +40,50 @@ class PurposeViewController: UIViewController {
     @IBAction func selectedPurpose(){
         performSegue(withIdentifier: "userSegue", sender: nil)
     }
+    
+    
+    override func viewWillLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.AdjustConstraint()
+        
+    }
+    
+    func AdjustConstraint() {
+        if UIDevice.current.orientation.isPortrait {
+            self.topConstraint.constant = 126.00
+        }
+        else {
+            self.topConstraint.constant = 00.00
+        }
+    }
+    
+    
+//    override func viewWillLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        if initialOrientation {
+//            initialOrientation = false
+//            if view.frame.width > view.frame.height {
+//                isInPortrait = false
+//                self.topConstraint.constant = 126.00
+//            } else {
+//                isInPortrait = true
+//                self.topConstraint.constant = 00.00
+//            }
+//        } else {
+//            if view.orientationHasChanged(&isInPortrait) {
+    
+//                if isInPortrait{
+//                    self.topConstraint.constant = 126.00
+//                }
+//                else {
+//                    self.topConstraint.constant = 00.00
+//                }
+//            }
+//            else {
+//                 self.topConstraint.constant = 00.00
+//        }
+    
+//        }
+//    }
 }

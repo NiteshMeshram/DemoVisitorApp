@@ -9,11 +9,17 @@
 import Foundation
 import UIKit
 
-class CompanyViewController: UIViewController {
+class CompanyViewController: BaseviewController {
     
+    var initialOrientation = true
+    var isInPortrait = false
+    
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     var comingFrom: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.AdjustConstraint()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -41,11 +47,6 @@ class CompanyViewController: UIViewController {
         
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-////        let theDestination = (segue.destinationViewController as ViewController2)
-////        theDestination.Duration2 = Duration
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "purposeSegue"{
             
@@ -54,7 +55,22 @@ class CompanyViewController: UIViewController {
             let theDestination = (segue.destination as! SearchViewController)
             theDestination.comingFrom = comingFrom
         }
-        
-        
+    }
+    
+    
+    
+    override func viewWillLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        self.AdjustConstraint()
+    }
+    
+    func AdjustConstraint() {
+        if UIDevice.current.orientation.isPortrait {
+            self.topConstraint.constant = 125.00
+        }
+        else {
+            self.topConstraint.constant = 125.00
+        }
     }
 }

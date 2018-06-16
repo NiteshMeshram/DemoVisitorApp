@@ -8,10 +8,16 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseviewController {
 
+    var initialOrientation = true
+    var isInPortrait = false
+    
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.AdjustConstraint()
         
         self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,39 +35,62 @@ class HomeViewController: UIViewController {
 
     @IBAction func nextButtonClick(_ sender: Any) {
         
-//        performSegue(withIdentifier: "chekInChecOutSegue", sender: nil)
     }
     
     @IBAction func activateNowClicked(_ sender: Any) {
-//        performSegue(withIdentifier: "chekInChecOutSegue", sender: nil)
-        
+
         self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
     }
     
-    override public var traitCollection: UITraitCollection {
+
+    override func viewWillLayoutSubviews() {
         
-        if UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isPortrait {
-            
-            return UITraitCollection(traitsFrom: [UITraitCollection(horizontalSizeClass: .compact),
-                                                  UITraitCollection(verticalSizeClass: .regular)])
-            
-        }
-        return super.traitCollection
+        super.viewDidLayoutSubviews()
+        
+
+        self.AdjustConstraint()
+        
     }
     
-}
-
-//public class CustomTraitCollectionViewController: UIViewController {
+    func AdjustConstraint() {
+        if UIDevice.current.orientation.isPortrait {
+            self.topConstraint.constant = 355.00
+        }
+        else {
+            self.topConstraint.constant = 150.00
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            print("landscape")
+        } else {
+            print("portrait")
+        }
+    }
+    
+//    override func viewWillLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        if initialOrientation {
+//            initialOrientation = false
+//            if view.frame.width > view.frame.height {
+//                isInPortrait = false
+//                self.topConstraint.constant = 150.00
+//            } else {
+//                isInPortrait = true
+//                self.topConstraint.constant = 355.00
+//            }
+//        } else {
+//            if view.orientationHasChanged(&isInPortrait) {
 //
-//    override public var traitCollection: UITraitCollection {
-//
-//        if UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isPortrait {
-//
-//            return UITraitCollection(traitsFrom: [UITraitCollection(horizontalSizeClass: .compact),
-//                                           UITraitCollection(verticalSizeClass: .regular)])
-//
+//                if isInPortrait{
+//                    self.topConstraint.constant = 355.00
+//                }
+//                else {
+//                    self.topConstraint.constant = 150.00
+//                }
+//            }
 //        }
-//        return super.traitCollection
 //    }
-//}
-
+    
+}

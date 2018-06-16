@@ -10,14 +10,21 @@ import Foundation
 import UIKit
 
 
-class SearchViewController: UIViewController {
+class SearchViewController: BaseviewController {
+    
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var searchUser: UISearchBar!
     @IBOutlet weak var userOneButton: UIButton!
     @IBOutlet weak var userList: UIButton!
+    
+    var initialOrientation = true
+    var isInPortrait = false
+    
     var comingFrom: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.AdjustConstraint()
         
         let textFieldInsideSearchBar = self.searchUser.value(forKey: "searchField") as! UITextField
         textFieldInsideSearchBar.leftViewMode = UITextFieldViewMode.never
@@ -74,6 +81,22 @@ class SearchViewController: UIViewController {
                     searchField.leftViewMode = UITextFieldViewMode.always
                 }
             }
+        }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.AdjustConstraint()
+        
+    }
+    
+    func AdjustConstraint() {
+        if UIDevice.current.orientation.isPortrait {
+            self.topConstraint.constant = 130.00
+        }
+        else {
+            self.topConstraint.constant = 00.00
         }
     }
     
