@@ -32,22 +32,41 @@ class UserViewController: BaseviewController {
         
         let placeHolderColor = UIColor(red: 138.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1.0)
         
-        personToMeetTextField.setBottomBorder()
+//        firstNameTextField.alpha = 0.5;    // 50% transparent
+        
+//        firstNameTextField.backgroundColor = UIColor.clear
+//        firstNameTextField.borderStyle = .none
+        
+//        self.firstNameTextField.layer.backgroundColor = UIColor.red
+        
+//        let placeHolder = firstNameTextField.value(forKey: "placeholderLabel") as! UILabel
+//        placeHolder.backgroundColor = .blue
+//        placeHolder.isOpaque = true
+        
+//        self.firstNameTextField.layer.backgroundColor = UIColor.clear.cgColor
+        
+//        self.firstNameTextField.backgroundColor = .red
+        
+        
+        personToMeetTextField.setBottomLine(borderColor: UIColor.gray)
         personToMeetTextField.attributedPlaceholder = NSAttributedString(string: "Person You Are Here To Meet",
                                                                attributes: [NSAttributedStringKey.foregroundColor: placeHolderColor])
         
         
-        companyTextField.setBottomBorder()
+//        companyTextField.setBottomLine()
+        companyTextField.setBottomLine(borderColor: UIColor.gray)
         companyTextField.attributedPlaceholder = NSAttributedString(string: "Your Company",
                                                                          attributes: [NSAttributedStringKey.foregroundColor: placeHolderColor])
-        emailTextField.setBottomBorder()
+//        emailTextField.setBottomLine()
+        emailTextField.setBottomLine(borderColor: UIColor.gray)
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Your Email",
                                                                     attributes: [NSAttributedStringKey.foregroundColor: placeHolderColor])
         
-        lastNameTextField.setBottomBorder()
+//        lastNameTextField.setBottomLine()
+        lastNameTextField.setBottomLine(borderColor: UIColor.gray)
         lastNameTextField.attributedPlaceholder = NSAttributedString(string: "Last Name",
                                                                   attributes: [NSAttributedStringKey.foregroundColor: placeHolderColor])
-        firstNameTextField.setBottomBorder()
+        firstNameTextField.setBottomLine(borderColor: UIColor.gray)
         firstNameTextField.attributedPlaceholder = NSAttributedString(string: "First Name",
                                                                      attributes: [NSAttributedStringKey.foregroundColor: placeHolderColor])
         
@@ -113,14 +132,19 @@ class UserViewController: BaseviewController {
 }
 
 extension UITextField {
-    func setBottomBorder() {
-        self.borderStyle = .none
-        self.layer.backgroundColor = UIColor.white.cgColor
+    
+    func setBottomLine(borderColor: UIColor) {
         
-        self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        self.layer.shadowOpacity = 1.0
-        self.layer.shadowRadius = 0.0
+        self.borderStyle = UITextBorderStyle.none
+        self.backgroundColor = UIColor.clear
+        
+        let borderLine = UIView()
+        let height = 1.0
+        borderLine.frame = CGRect(x: 0, y: Double(self.frame.height) - height, width: Double(self.frame.width), height: height)
+        
+        borderLine.backgroundColor = borderColor
+        self.addSubview(borderLine)
     }
 }
+
+

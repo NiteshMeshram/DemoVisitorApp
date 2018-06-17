@@ -69,28 +69,6 @@ class HomeViewController: BaseviewController {
         }
     }
     
-//    override func viewWillLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        if initialOrientation {
-//            initialOrientation = false
-//            if view.frame.width > view.frame.height {
-//                isInPortrait = false
-//                self.topConstraint.constant = 150.00
-//            } else {
-//                isInPortrait = true
-//                self.topConstraint.constant = 355.00
-//            }
-//        } else {
-//            if view.orientationHasChanged(&isInPortrait) {
-//
-//                if isInPortrait{
-//                    self.topConstraint.constant = 355.00
-//                }
-//                else {
-//                    self.topConstraint.constant = 150.00
-//                }
-//            }
-//        }
-//    }
+
     
 }

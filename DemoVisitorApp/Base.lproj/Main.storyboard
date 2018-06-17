@@ -5,6 +5,8 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -901,27 +903,37 @@ You have been successfully checked out.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ThankYouPageLine" translatesAutoresizingMaskIntoConstraints="NO" id="Zr3-AB-Aff">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThankYouPageLine" translatesAutoresizingMaskIntoConstraints="NO" id="Zr3-AB-Aff">
                                 <rect key="frame" x="148" y="520" width="200" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ThankYouPageLine" translatesAutoresizingMaskIntoConstraints="NO" id="PhQ-9W-Fjs">
-                                <rect key="frame" x="415" y="520" width="200" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="PfG-NO-xWS"/>
+                                    <constraint firstAttribute="width" constant="200" id="jNW-lV-xvl"/>
+                                </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thankyou" translatesAutoresizingMaskIntoConstraints="NO" id="0Wa-hm-gp2">
-                                <rect key="frame" x="369.5" y="486" width="29" height="45"/>
+                                <rect key="frame" x="369" y="486" width="29" height="45"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThankYouPageLine" translatesAutoresizingMaskIntoConstraints="NO" id="PhQ-9W-Fjs">
+                                <rect key="frame" x="415" y="523" width="200" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="gQJ-A9-73e"/>
+                                    <constraint firstAttribute="width" constant="200" id="j0t-r0-KFu"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0Wa-hm-gp2" firstAttribute="centerX" secondItem="bRL-sN-SEi" secondAttribute="centerX" id="2rg-fN-WUe"/>
+                            <constraint firstItem="0Wa-hm-gp2" firstAttribute="baseline" secondItem="Zr3-AB-Aff" secondAttribute="firstBaseline" constant="11" id="3jI-21-Hnx"/>
                             <constraint firstItem="ct1-mG-lND" firstAttribute="bottom" secondItem="FZL-Zh-gTV" secondAttribute="bottom" id="BeK-fu-EUh"/>
                             <constraint firstItem="TUS-dQ-oBd" firstAttribute="top" secondItem="4XH-Ex-sS1" secondAttribute="bottom" constant="88" id="G0a-QJ-3fu"/>
                             <constraint firstItem="0Wa-hm-gp2" firstAttribute="top" secondItem="TUS-dQ-oBd" secondAttribute="bottom" constant="25" id="IFQ-60-q2S"/>
                             <constraint firstItem="ct1-mG-lND" firstAttribute="trailing" secondItem="FZL-Zh-gTV" secondAttribute="trailing" id="MBY-DG-5Cq"/>
                             <constraint firstItem="4XH-Ex-sS1" firstAttribute="top" secondItem="ogx-sV-iC7" secondAttribute="bottom" constant="36" id="QGS-Ke-tmY"/>
                             <constraint firstItem="4XH-Ex-sS1" firstAttribute="centerX" secondItem="ogx-sV-iC7" secondAttribute="centerX" id="f7L-R8-PJF"/>
+                            <constraint firstItem="PhQ-9W-Fjs" firstAttribute="leading" secondItem="0Wa-hm-gp2" secondAttribute="trailing" constant="17" id="gKJ-hr-AoJ"/>
+                            <constraint firstItem="0Wa-hm-gp2" firstAttribute="baseline" secondItem="PhQ-9W-Fjs" secondAttribute="firstBaseline" constant="8" symbolType="layoutAnchor" id="hdA-g9-bln"/>
+                            <constraint firstItem="0Wa-hm-gp2" firstAttribute="leading" secondItem="Zr3-AB-Aff" secondAttribute="trailing" constant="21" id="kod-FN-CxU"/>
                             <constraint firstItem="ogx-sV-iC7" firstAttribute="centerX" secondItem="bRL-sN-SEi" secondAttribute="centerX" id="pHR-B9-jM1"/>
                             <constraint firstItem="ogx-sV-iC7" firstAttribute="top" secondItem="FZL-Zh-gTV" secondAttribute="top" constant="143" id="qd5-OR-2es"/>
                             <constraint firstItem="TUS-dQ-oBd" firstAttribute="centerX" secondItem="4XH-Ex-sS1" secondAttribute="centerX" constant="15.25" id="zl5-Gh-PEq"/>
