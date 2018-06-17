@@ -20,6 +20,7 @@
 		2227E2B52086713A003EAD0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E2B42086713A003EAD0B /* ProfileViewController.swift */; };
 		2227E2B720867185003EAD0B /* ThankyouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E2B620867185003EAD0B /* ThankyouViewController.swift */; };
 		222F6A7220D54CCD004EFA91 /* BaseviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F6A7120D54CCD004EFA91 /* BaseviewController.swift */; };
+		222F6AAF20D6DDD6004EFA91 /* Montserrat in Resources */ = {isa = PBXBuildFile; fileRef = 222F6AAE20D6DDD5004EFA91 /* Montserrat */; };
 		22FDB142205EB4C9003A860A /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDB141205EB4C9003A860A /* CompanyViewController.swift */; };
 		22FDB144205EB4EC003A860A /* PurposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDB143205EB4EC003A860A /* PurposeViewController.swift */; };
 		22FDB146205EB50B003A860A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDB145205EB50B003A860A /* UserViewController.swift */; };
@@ -62,6 +63,7 @@
 		2227E2B42086713A003EAD0B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2227E2B620867185003EAD0B /* ThankyouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankyouViewController.swift; sourceTree = "<group>"; };
 		222F6A7120D54CCD004EFA91 /* BaseviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseviewController.swift; sourceTree = "<group>"; };
+		222F6AAE20D6DDD5004EFA91 /* Montserrat */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Montserrat; sourceTree = "<group>"; };
 		22FDB141205EB4C9003A860A /* CompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyViewController.swift; sourceTree = "<group>"; };
 		22FDB143205EB4EC003A860A /* PurposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurposeViewController.swift; sourceTree = "<group>"; };
 		22FDB145205EB50B003A860A /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		00CE48C2204D23E1008FC9DA /* DemoVisitorApp */ = {
 			isa = PBXGroup;
 			children = (
+				222F6AAE20D6DDD5004EFA91 /* Montserrat */,
 				00CE48C3204D23E1008FC9DA /* AppDelegate.swift */,
 				00CE48C5204D23E1008FC9DA /* HomeViewController.swift */,
 				00CE48C7204D23E1008FC9DA /* Main.storyboard */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00CE48D1204D23E1008FC9DA /* LaunchScreen.storyboard in Resources */,
+				222F6AAF20D6DDD6004EFA91 /* Montserrat in Resources */,
 				00CE48CE204D23E1008FC9DA /* Assets.xcassets in Resources */,
 				00CE48C9204D23E1008FC9DA /* Main.storyboard in Resources */,
 			);
