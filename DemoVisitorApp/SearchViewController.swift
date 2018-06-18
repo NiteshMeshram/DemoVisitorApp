@@ -28,6 +28,8 @@ class SearchViewController: BaseviewController {
         
         let textFieldInsideSearchBar = self.searchUser.value(forKey: "searchField") as! UITextField
         textFieldInsideSearchBar.leftViewMode = UITextFieldViewMode.never
+//        self.searchUser.appearance()
+        UISearchBar.appearance().backgroundColor = UIColor.clear
         self.customizeSearchBar()
         
         if comingFrom == "checkOut" {
