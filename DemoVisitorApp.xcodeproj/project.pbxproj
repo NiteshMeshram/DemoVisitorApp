@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0027D15420F4F003000A618D /* IQKeyboardManagerSwift in Resources */ = {isa = PBXBuildFile; fileRef = 0027D15320F4F002000A618D /* IQKeyboardManagerSwift */; };
 		00CE48C4204D23E1008FC9DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE48C3204D23E1008FC9DA /* AppDelegate.swift */; };
 		00CE48C6204D23E1008FC9DA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE48C5204D23E1008FC9DA /* HomeViewController.swift */; };
 		00CE48C9204D23E1008FC9DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CE48C7204D23E1008FC9DA /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0027D15320F4F002000A618D /* IQKeyboardManagerSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; path = IQKeyboardManagerSwift; sourceTree = SOURCE_ROOT; };
 		00CE48C0204D23E1008FC9DA /* DemoVisitorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoVisitorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CE48C3204D23E1008FC9DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00CE48C5204D23E1008FC9DA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		00CE48C2204D23E1008FC9DA /* DemoVisitorApp */ = {
 			isa = PBXGroup;
 			children = (
+				0027D15320F4F002000A618D /* IQKeyboardManagerSwift */,
 				222F6AAE20D6DDD5004EFA91 /* Montserrat */,
 				00CE48C3204D23E1008FC9DA /* AppDelegate.swift */,
 				00CE48C5204D23E1008FC9DA /* HomeViewController.swift */,
@@ -262,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0027D15420F4F003000A618D /* IQKeyboardManagerSwift in Resources */,
 				00CE48D1204D23E1008FC9DA /* LaunchScreen.storyboard in Resources */,
 				222F6AAF20D6DDD6004EFA91 /* Montserrat in Resources */,
 				00CE48CE204D23E1008FC9DA /* Assets.xcassets in Resources */,

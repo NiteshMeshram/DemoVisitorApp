@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
          
 //        Switcher.updateRootVC()
+         IQKeyboardManager.sharedManager().enable = true
         
         return true
     }
