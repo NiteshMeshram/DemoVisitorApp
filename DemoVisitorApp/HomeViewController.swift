@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: BaseviewController {
+class HomeViewController: BaseviewController,UITextFieldDelegate {
 
     var initialOrientation = true
     var isInPortrait = false
@@ -69,6 +69,16 @@ class HomeViewController: BaseviewController {
         }
     }
     
+//    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return false to ignore.
+//    {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+    
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
 }

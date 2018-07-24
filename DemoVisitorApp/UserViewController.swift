@@ -11,7 +11,7 @@ import Foundation
 
 import UIKit
 
-class UserViewController: BaseviewController {
+class UserViewController: BaseviewController, UITextFieldDelegate {
     
     @IBOutlet weak var personToMeetTextField: UITextField!
     @IBOutlet weak var companyTextField: UITextField!
@@ -126,6 +126,11 @@ class UserViewController: BaseviewController {
         else {
             self.topConstraint.constant = 00.00
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     
