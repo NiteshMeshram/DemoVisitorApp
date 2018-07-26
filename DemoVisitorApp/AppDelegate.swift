@@ -24,6 +24,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
          
 //        Switcher.updateRootVC()
+        /*
+        var loginDict = [String: Any]()
+        loginDict = ["a":"device-info" ,"deviceid":"1111111111111"]
+        print(loginDict)
+        DataManager.userActivation(userDetailDict: loginDict, closure: {Result in
+            
+            switch Result {
+            case .success(let responseDict): break
+            case .failure(let errorMessage): break
+            }
+        })
+        */
          IQKeyboardManager.sharedManager().enable = true
         
         return true
