@@ -32,21 +32,6 @@ class UserViewController: BaseviewController, UITextFieldDelegate {
         
         let placeHolderColor = UIColor(red: 138.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1.0)
         
-//        firstNameTextField.alpha = 0.5;    // 50% transparent
-        
-//        firstNameTextField.backgroundColor = UIColor.clear
-//        firstNameTextField.borderStyle = .none
-        
-//        self.firstNameTextField.layer.backgroundColor = UIColor.red
-        
-//        let placeHolder = firstNameTextField.value(forKey: "placeholderLabel") as! UILabel
-//        placeHolder.backgroundColor = .blue
-//        placeHolder.isOpaque = true
-        
-//        self.firstNameTextField.layer.backgroundColor = UIColor.clear.cgColor
-        
-//        self.firstNameTextField.backgroundColor = .red
-        
         
         personToMeetTextField.setBottomLine(borderColor: UIColor.gray)
         personToMeetTextField.attributedPlaceholder = NSAttributedString(string: "Person You Are Here To Meet",
@@ -88,30 +73,6 @@ class UserViewController: BaseviewController, UITextFieldDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-//    override func viewWillLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        if initialOrientation {
-//            initialOrientation = false
-//            if view.frame.width > view.frame.height {
-//                isInPortrait = false
-//                self.topConstraint.constant = 130.00
-//            } else {
-//                isInPortrait = true
-//                self.topConstraint.constant = 00.00
-//            }
-//        } else {
-//            if view.orientationHasChanged(&isInPortrait) {
-//
-//                if isInPortrait{
-//                    self.topConstraint.constant = 130.00
-//                }
-//                else {
-//                    self.topConstraint.constant = 00.00
-//                }
-//            }
-//        }
-//    }
-    
     override func viewWillLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -141,15 +102,24 @@ extension UITextField {
     func setBottomLine(borderColor: UIColor) {
         
         self.borderStyle = UITextBorderStyle.none
-        self.backgroundColor = UIColor.clear
+        self.layer.cornerRadius = 5
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.gray.withAlphaComponent(1.0).cgColor
+            
+//            UIColor.lightGrayColor().colorWithAlphaComponent(0.2).CGColor
+
         
-        let borderLine = UIView()
-        let height = 1.0
-        borderLine.frame = CGRect(x: 0, y: Double(self.frame.height) - height, width: Double(self.frame.width), height: height)
-        
-        borderLine.backgroundColor = borderColor
-        self.addSubview(borderLine)
+//        self.borderStyle = UITextBorderStyle.none
+//        self.backgroundColor = UIColor.clear
+//
+//        let borderLine = UIView()
+//        let height = 1.0
+//        borderLine.frame = CGRect(x: 0, y: Double(self.frame.height) - height, width: Double(self.frame.width), height: height)
+//
+//        borderLine.backgroundColor = borderColor
+//        self.addSubview(borderLine)
     }
 }
+
 
 

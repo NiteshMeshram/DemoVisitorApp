@@ -45,6 +45,7 @@
 		386B8DDB210821770085392F /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B8DD6210821770085392F /* ServerManager.swift */; };
 		386B8DDC210821770085392F /* SharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B8DD8210821770085392F /* SharedManager.swift */; };
 		386B8DDD210821770085392F /* UserActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B8DD9210821770085392F /* UserActivation.swift */; };
+		386B8DDF2110D51E0085392F /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B8DDE2110D51E0085392F /* SplashScreenViewController.swift */; };
 		ED1F8A630A28927BCEDBD749 /* Pods_DemoVisitorApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED11E36A2257DE4D3F9D6AD2 /* Pods_DemoVisitorApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		386B8DD6210821770085392F /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		386B8DD8210821770085392F /* SharedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedManager.swift; sourceTree = "<group>"; };
 		386B8DD9210821770085392F /* UserActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivation.swift; sourceTree = "<group>"; };
+		386B8DDE2110D51E0085392F /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		783AABDC4CA4051A8F81A68B /* Pods-DemoVisitorApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoVisitorApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoVisitorApp/Pods-DemoVisitorApp.release.xcconfig"; sourceTree = "<group>"; };
 		94F213BA3894D84CDDE46998 /* Pods-DemoVisitorApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoVisitorApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoVisitorApp/Pods-DemoVisitorApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ED11E36A2257DE4D3F9D6AD2 /* Pods_DemoVisitorApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoVisitorApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +253,7 @@
 				2227E2B620867185003EAD0B /* ThankyouViewController.swift */,
 				221CED6820B099EB005D7BA9 /* SearchViewController.swift */,
 				222F6A7120D54CCD004EFA91 /* BaseviewController.swift */,
+				386B8DDE2110D51E0085392F /* SplashScreenViewController.swift */,
 			);
 			path = DemoVisitorApp;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				386B8DDC210821770085392F /* SharedManager.swift in Sources */,
 				00CE48CC204D23E1008FC9DA /* DemoVisitorApp.xcdatamodeld in Sources */,
 				0027D17A20F4F1B5000A618D /* IQBarButtonItem.swift in Sources */,
+				386B8DDF2110D51E0085392F /* SplashScreenViewController.swift in Sources */,
 				0027D17320F4F1B5000A618D /* IQUIViewController+Additions.swift in Sources */,
 				386B8DDB210821770085392F /* ServerManager.swift in Sources */,
 				0027D17E20F4F1B5000A618D /* IQUIView+IQKeyboardToolbar.swift in Sources */,
@@ -692,6 +696,7 @@
 			baseConfigurationReference = 94F213BA3894D84CDDE46998 /* Pods-DemoVisitorApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: admin@adaptismobile.com (N6Y65HK4BT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -713,6 +718,7 @@
 			baseConfigurationReference = 783AABDC4CA4051A8F81A68B /* Pods-DemoVisitorApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: admin@adaptismobile.com (N6Y65HK4BT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
