@@ -21,6 +21,12 @@ enum URI {
     }
 }
 
+enum VisitorError: String {
+    case fail = "1"
+    case success = "0"
+}
+
+
 class DataManager {
     
     //MARK: - Datamanager sharedInstance
@@ -39,27 +45,9 @@ class DataManager {
             
             switch Result {
             case .success(let jsonResponse):
-//                print(jsonResponse)
-                
-//                let sharedInstance = SharedManager.sharedInstance
-                
                 var userActivation = UserActivation()
-               
-                UserActivation.convertJsonToObject(jsonString: jsonResponse)
-                
-                
-//                if jsonResponse["error"]["hasError"].stringValue == "0" {
-////                     print(jsonResponse["error"]["hasError"])
-//
-//                    if jsonResponse["response"]["status"].stringValue == "0" {
-//                        print(jsonResponse["error"]["hasError"])
-//                    }
-//                }
-                
-               
-                
-
-
+                userActivation = UserActivation.convertJsonToObject(jsonString: jsonResponse)
+                closure(.success(userActivation))
                 break
             case .failure(let errorMessage):
                 closure(.failure(errorMessage))

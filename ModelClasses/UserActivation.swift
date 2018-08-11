@@ -38,33 +38,34 @@ class UserActivation : NSObject {
         
         var userActivation = UserActivation()
         if let dict = jsonString["response"].dictionary {
-            print(dict)
+            if let topLineText = dict["topline1text"]?.stringValue{
+                userActivation.topline1text = topLineText
+            }
+            
+            if let status = dict["status"]?.stringValue{
+                userActivation.status = status
+            }
+            
+            if let topline2text = dict["topline2text"]?.stringValue{
+                userActivation.topline2text = topline2text
+            }
+            
+            if let activation_code = dict["activation_code"]?.stringValue{
+                userActivation.activation_code = activation_code
+            }
+            
+            if let activatebtntxt = dict["activatebtntxt"]?.stringValue{
+                userActivation.activatebtntxt = activatebtntxt
+            }
         }
-//    7432
         
-//        userActivation.topline1text
-//        userActivation.status
-//        userActivation.topline2text
-//        userActivation.activation_code
-//        userActivation.activatebtntxt
-//
-//        userActivation.hasError
-        
-//        for i in 0..<jsonString["resultArray"].count {
-//
-//            if let dict = jsonString["resultArray"][i].dictionary {
-//
-//                let bannerModel = Banner()
-//
-//                if let bannerID = dict["id"]?.stringValue{
-//                    bannerModel.offerBannerID = bannerID
-//                }
-//                if let bannerImagePath = dict["offer_banner_image_path"]?.stringValue{
-//                    bannerModel.offerBannerImagePath = bannerImagePath
-//                }
-//                bannerArrayModel.append(bannerModel)
-//            }
-//        }
+        if let errorDict = jsonString["error"].dictionary {
+            
+            if let errorCode = errorDict["hasError"]?.stringValue {
+                userActivation.hasError = errorCode
+            }
+        }
+
         return userActivation
     }
 }

@@ -107,6 +107,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="rhQ-Dd-YbZ"/>
                     <connections>
+                        <outlet property="activationCodeText" destination="riB-yf-GwA" id="Atk-98-yR7"/>
                         <outlet property="topConstraint" destination="J9I-d3-2Lf" id="Zyj-c6-H8n"/>
                         <segue destination="MHg-TO-FPP" kind="show" identifier="mainFlowSegue" id="91e-aY-zD6"/>
                     </connections>
@@ -227,10 +228,10 @@
             </objects>
             <point key="canvasLocation" x="1752" y="10"/>
         </scene>
-        <!--View Controller-->
+        <!--Error View Controller-->
         <scene sceneID="XJJ-QP-dXT">
             <objects>
-                <viewController id="hEd-aI-CPP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="errorScreen" id="hEd-aI-CPP" customClass="ErrorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yV6-T7-Jb7">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -13,11 +13,16 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     var initialOrientation = true
     var isInPortrait = false
     
+    var activationCode : String = ""
+    
+    @IBOutlet weak var activationCodeText: UITextField!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.activationCodeText.text = self.activationCode
         self.AdjustConstraint()
+        print("1st")
         
         self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view, typically from a nib.
@@ -26,11 +31,14 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
 //        self.navigationController!.viewControllers.removeAll()
 
+        self.AdjustConstraint()
+         print("3st")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+         print("2st")
     }
 
     @IBAction func nextButtonClick(_ sender: Any) {
@@ -46,7 +54,7 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     override func viewWillLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
-        
+         print("4st")
 
         self.AdjustConstraint()
         

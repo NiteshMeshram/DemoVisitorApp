@@ -18,24 +18,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        override func viewWillAppear(_ animated: Bool) {
-//            super.viewWillAppear(animated);
-//            self.navigationController?.isNavigationBarHidden = false
-//        }
-         
-//        Switcher.updateRootVC()
-        /*
         var loginDict = [String: Any]()
         loginDict = ["a":"device-info" ,"deviceid":"1111111111111"]
         print(loginDict)
         DataManager.userActivation(userDetailDict: loginDict, closure: {Result in
             
             switch Result {
-            case .success(let responseDict): break
-            case .failure(let errorMessage): break
+            case .success(let userActivation):
+                if userActivation.hasError == VisitorError.success.rawValue{
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "activationView") as! HomeViewController
+                    initialViewController.activationCode = userActivation.activation_code
+                    
+                    self.window?.rootViewController = initialViewController
+                    self.window?.makeKeyAndVisible()
+                }
+                else {
+//                    errorScreen
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "errorScreen") as! ErrorViewController
+                    
+                    
+                    self.window?.rootViewController = initialViewController
+                    self.window?.makeKeyAndVisible()
+                }
+                break
+            case .failure(let errorMessage):
+                print(errorMessage)
+                self.window = UIWindow(frame: UIScreen.main.bounds)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "errorScreen") as! ErrorViewController
+
+                
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+                break
             }
         })
-        */
+        
          IQKeyboardManager.sharedManager().enable = true
         
         return true

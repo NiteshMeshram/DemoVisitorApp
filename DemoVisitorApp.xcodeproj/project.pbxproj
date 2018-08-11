@@ -41,6 +41,7 @@
 		22FDB142205EB4C9003A860A /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDB141205EB4C9003A860A /* CompanyViewController.swift */; };
 		22FDB144205EB4EC003A860A /* PurposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDB143205EB4EC003A860A /* PurposeViewController.swift */; };
 		22FDB146205EB50B003A860A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDB145205EB50B003A860A /* UserViewController.swift */; };
+		382992D2211A0A4F00B1D164 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382992D1211A0A4F00B1D164 /* ErrorViewController.swift */; };
 		386B8DDA210821770085392F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B8DD5210821770085392F /* DataManager.swift */; };
 		386B8DDB210821770085392F /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B8DD6210821770085392F /* ServerManager.swift */; };
 		386B8DDC210821770085392F /* SharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B8DD8210821770085392F /* SharedManager.swift */; };
@@ -108,6 +109,7 @@
 		22FDB141205EB4C9003A860A /* CompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyViewController.swift; sourceTree = "<group>"; };
 		22FDB143205EB4EC003A860A /* PurposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurposeViewController.swift; sourceTree = "<group>"; };
 		22FDB145205EB50B003A860A /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		382992D1211A0A4F00B1D164 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		386B8DD5210821770085392F /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		386B8DD6210821770085392F /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		386B8DD8210821770085392F /* SharedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedManager.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				221CED6820B099EB005D7BA9 /* SearchViewController.swift */,
 				222F6A7120D54CCD004EFA91 /* BaseviewController.swift */,
 				386B8DDE2110D51E0085392F /* SplashScreenViewController.swift */,
+				382992D1211A0A4F00B1D164 /* ErrorViewController.swift */,
 			);
 			path = DemoVisitorApp;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				0027D17E20F4F1B5000A618D /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				2227E2B720867185003EAD0B /* ThankyouViewController.swift in Sources */,
 				00CE48C6204D23E1008FC9DA /* HomeViewController.swift in Sources */,
+				382992D2211A0A4F00B1D164 /* ErrorViewController.swift in Sources */,
 				0027D17D20F4F1B5000A618D /* IQToolbar.swift in Sources */,
 				0027D16F20F4F1B5000A618D /* IQNSArray+Sort.swift in Sources */,
 				0027D17520F4F1B5000A618D /* IQKeyboardManagerConstants.swift in Sources */,
