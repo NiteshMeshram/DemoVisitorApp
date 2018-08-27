@@ -13,28 +13,70 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var userDeviceId: String?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
+
         var loginDict = [String: Any]()
-        loginDict = ["a":"device-info" ,"deviceid":"1111111111111"]
+        let userDefaults = UserDefaults.standard
+        if let key = userDefaults.object(forKey: "userDeviceId"){
+            // exist
+            if let uuid = userDefaults.string(forKey: key as! String){
+                self.userDeviceId = uuid
+            }
+        }
+        else {
+            // not exist
+            self.userDeviceId = UIDevice.current.identifierForVendor?.uuidString
+        }
+        
+        loginDict = ["a":"device-info" ,"deviceid":self.userDeviceId!]
+        //loginDict = ["a":"device-info" ,"deviceid":"8485485845845eerer434343"]
+        
+
         print(loginDict)
         DataManager.userActivation(userDetailDict: loginDict, closure: {Result in
             
             switch Result {
             case .success(let userActivation):
+                
                 if userActivation.hasError == VisitorError.success.rawValue{
                     self.window = UIWindow(frame: UIScreen.main.bounds)
                     
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     
                     let initialViewController = storyboard.instantiateViewController(withIdentifier: "activationView") as! HomeViewController
-                    initialViewController.activationCode = userActivation.activation_code
+//                    if let userData = userActivation as UserActivation {
+                        initialViewController.userActivation = userActivation
+//                    }
+//                    initialViewController.activationCode = userActivation.activation_code!
                     
+                    
+                    
+//                    guard let line1 = userActivation.topline1text else { return }
+//                    initialViewController.topLine1Label.text = line1
+                    
+//                    print(userActivation.topline1text)
+                    
+//                if let line1 = userActivation.topline1text {
+//                    print("foo is not nil")
+//                } else {
+//                    print("foo is nil")
+//                }
+                    
+//                    if let line1 = userActivation.topline1text {
+//                    initialViewController.topLine1Label.text = line1
+////                        print(line1)
+//
+//                    }
+                
                     self.window?.rootViewController = initialViewController
                     self.window?.makeKeyAndVisible()
+
+//                    initialViewController.topLine1Label.text = userActivation.topline1text
+//                    initialViewController.topLine2Label.text = userActivation.topline2text
+                    
+                    
                 }
                 else {
 //                    errorScreen

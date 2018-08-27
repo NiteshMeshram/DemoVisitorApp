@@ -16,19 +16,6 @@ class UserActivation : NSObject {
     var activation_code = ""
     var activatebtntxt = ""
     var hasError = ""
-    //                {
-    //                    "response" : {
-    //                        "topline1text" : "Enter your 10 digit number",
-    //                        "status" : 0,
-    //                        "topline2text" : "Activate code below to proceed",
-    //                        "activation_code" : "2535146169",
-    //                        "activatebtntxt" : "Activate Now !!"
-    //                    },
-    //                    "error" : {
-    //                        "hasError" : 0
-    //                    }
-    //                }
-    
     
     override init() {
         super.init()

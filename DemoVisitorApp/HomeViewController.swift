@@ -15,12 +15,21 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     
     var activationCode : String = ""
     
+    @IBOutlet weak var topLine1Label: UILabel!
+    //    @IBOutlet weak var topLine1Label: UILabel!
+    @IBOutlet weak var topLine2Label: UILabel!
     @IBOutlet weak var activationCodeText: UITextField!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    
+    var userActivation: UserActivation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.activationCodeText.text = self.activationCode
+        self.activationCodeText.text = self.userActivation?.activation_code
+        self.topLine1Label.text = self.userActivation?.topline1text
+        self.topLine2Label.text = self.userActivation?.topline2text
+        
         self.AdjustConstraint()
         print("1st")
         

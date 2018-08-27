@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftyJSON
+import UIKit
 
 enum URI {
     case UserActivation
@@ -14,9 +15,9 @@ enum URI {
     
     func uriString() -> String {
         switch self {
-            //http://dev.visitorbay.com/api/?a=device-info&deviceid=1111111111111
+        //http://dev.visitorbay.com/api/?a=device-info&deviceid=1111111111111
         case .UserActivation: return "" //"http://dev.visitorbay.com/api"
-        
+            
         }
     }
 }
@@ -30,15 +31,20 @@ enum VisitorError: String {
 class DataManager {
     
     //MARK: - Datamanager sharedInstance
+    static var userDeviceId: String = ""
     
     class func sharedInstance() -> DataManager {
         struct Static {
             static let sharedInstance = DataManager()
+            //userDeviceId = UIDevice.current.identifierForVendor?.uuidString
         }
         return Static.sharedInstance
-}
-
-//MARK: - Registration
+    }
+    
+    func initialize() {
+        DataManager.userDeviceId = (UIDevice.current.identifierForVendor?.uuidString)!
+    }
+    //MARK: - Registration
     class func userActivation(userDetailDict: [String:Any], closure: @escaping(Result<UserActivation,String>) ->Void){
         
         ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
@@ -54,5 +60,5 @@ class DataManager {
             }
         }
     }
-
+    
 }

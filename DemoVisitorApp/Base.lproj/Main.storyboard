@@ -78,7 +78,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter you 10 digit " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsR-Ul-yIm">
-                                <rect key="frame" x="288" y="378" width="268" height="30"/>
+                                <rect key="frame" x="183" y="378" width="465" height="30"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="24"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -88,18 +88,18 @@
                         <constraints>
                             <constraint firstItem="33y-Fy-Nfd" firstAttribute="centerX" secondItem="riB-yf-GwA" secondAttribute="centerX" id="5hk-xm-cc2"/>
                             <constraint firstItem="ql3-Fp-XEL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5qC-5R-Zwf"/>
-                            <constraint firstItem="AsR-Ul-yIm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="38" id="Ahp-92-Is0"/>
+                            <constraint firstItem="AsR-Ul-yIm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="31.5" id="Ahp-92-Is0"/>
                             <constraint firstItem="AsR-Ul-yIm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="358" id="J9I-d3-2Lf"/>
                             <constraint firstItem="ql3-Fp-XEL" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="V5F-6U-Ji0"/>
                             <constraint firstItem="33y-Fy-Nfd" firstAttribute="top" secondItem="riB-yf-GwA" secondAttribute="bottom" constant="71" id="Y39-gm-Jlf"/>
                             <constraint firstItem="ql3-Fp-XEL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dNZ-wd-2Qg"/>
-                            <constraint firstItem="AsR-Ul-yIm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="38" id="hzR-ey-zVu"/>
+                            <constraint firstItem="AsR-Ul-yIm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="31.5" id="hzR-ey-zVu"/>
                             <constraint firstItem="BDf-1G-cdk" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="khp-fr-rrI"/>
                             <constraint firstItem="riB-yf-GwA" firstAttribute="centerX" secondItem="uNi-kA-7DZ" secondAttribute="centerX" id="lAJ-9K-3yg"/>
-                            <constraint firstItem="AsR-Ul-yIm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="288" id="sZC-1x-r7B"/>
+                            <constraint firstItem="AsR-Ul-yIm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="183" id="sZC-1x-r7B"/>
                             <constraint firstItem="ql3-Fp-XEL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sic-EG-pO4"/>
                             <constraint firstItem="uNi-kA-7DZ" firstAttribute="top" secondItem="AsR-Ul-yIm" secondAttribute="bottom" constant="8" id="vVZ-7D-aK0"/>
-                            <constraint firstItem="uNi-kA-7DZ" firstAttribute="centerX" secondItem="AsR-Ul-yIm" secondAttribute="centerX" constant="-9" id="vpP-VA-4tv"/>
+                            <constraint firstItem="uNi-kA-7DZ" firstAttribute="centerX" secondItem="AsR-Ul-yIm" secondAttribute="centerX" constant="-2.5" id="vpP-VA-4tv"/>
                             <constraint firstItem="riB-yf-GwA" firstAttribute="top" secondItem="uNi-kA-7DZ" secondAttribute="bottom" constant="25" id="z81-x3-gjP"/>
                             <constraint firstItem="BDf-1G-cdk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zEJ-gF-Vkt"/>
                         </constraints>
@@ -109,6 +109,8 @@
                     <connections>
                         <outlet property="activationCodeText" destination="riB-yf-GwA" id="Atk-98-yR7"/>
                         <outlet property="topConstraint" destination="J9I-d3-2Lf" id="Zyj-c6-H8n"/>
+                        <outlet property="topLine1Label" destination="AsR-Ul-yIm" id="KYX-i8-08b"/>
+                        <outlet property="topLine2Label" destination="uNi-kA-7DZ" id="Jnd-0r-9jm"/>
                         <segue destination="MHg-TO-FPP" kind="show" identifier="mainFlowSegue" id="91e-aY-zD6"/>
                     </connections>
                 </viewController>
@@ -231,7 +233,7 @@
         <!--Error View Controller-->
         <scene sceneID="XJJ-QP-dXT">
             <objects>
-                <viewController storyboardIdentifier="errorScreen" id="hEd-aI-CPP" customClass="ErrorViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="errorScreen" id="hEd-aI-CPP" customClass="ErrorViewController" customModule="DemoVisitorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yV6-T7-Jb7">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
