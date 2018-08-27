@@ -14,6 +14,7 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     var isInPortrait = false
     
     var activationCode : String = ""
+    var userDeviceId: String?
     
     @IBOutlet weak var topLine1Label: UILabel!
     //    @IBOutlet weak var topLine1Label: UILabel!
@@ -55,8 +56,9 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     }
     
     @IBAction func activateNowClicked(_ sender: Any) {
+        self.activationAPICall()
 
-        self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
+//        self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
     }
     
 
@@ -96,6 +98,51 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func activationAPICall() {
+        var loginDict = [String: Any]()
+        
+        let userDefaults = UserDefaults.standard
+        if let key = userDefaults.object(forKey: "userDeviceId"){
+            // exist
+            if let uuid = userDefaults.string(forKey: key as! String){
+                self.userDeviceId = uuid
+            }
+        }
+        else {
+            // not exist
+            self.userDeviceId = UIDevice.current.identifierForVendor?.uuidString
+        }
+        
+        loginDict = ["a":"activate-device" ,
+                     "deviceid":self.userDeviceId!,
+                     "acode": self.userActivation?.activation_code as! String]
+        //loginDict = ["a":"device-info" ,"deviceid":"8485485845845eerer434343"]
+        
+        //        ?a=activate-device&deviceid=<>&acode=<activationcode>
+        
+        print(loginDict)
+        DataManager.activationWithKey(userDetailDict: loginDict, closure: {Result in
+            
+            switch Result {
+            case .success(let userActivation):
+                
+                if userActivation.hasError == VisitorError.success.rawValue{
+                    
+                }
+                else {
+                    //                    errorScreen
+                    
+                }
+                break
+            case .failure(let errorMessage):
+                print(errorMessage)
+                
+                break
+            }
+        })
+        
     }
     
 }

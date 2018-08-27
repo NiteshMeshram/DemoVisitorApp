@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loginDict = ["a":"device-info" ,"deviceid":self.userDeviceId!]
         //loginDict = ["a":"device-info" ,"deviceid":"8485485845845eerer434343"]
         
+//        ?a=activate-device&deviceid=<>&acode=<activationcode>
 
         print(loginDict)
         DataManager.userActivation(userDetailDict: loginDict, closure: {Result in
@@ -46,37 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     
                     let initialViewController = storyboard.instantiateViewController(withIdentifier: "activationView") as! HomeViewController
-//                    if let userData = userActivation as UserActivation {
                         initialViewController.userActivation = userActivation
-//                    }
-//                    initialViewController.activationCode = userActivation.activation_code!
-                    
-                    
-                    
-//                    guard let line1 = userActivation.topline1text else { return }
-//                    initialViewController.topLine1Label.text = line1
-                    
-//                    print(userActivation.topline1text)
-                    
-//                if let line1 = userActivation.topline1text {
-//                    print("foo is not nil")
-//                } else {
-//                    print("foo is nil")
-//                }
-                    
-//                    if let line1 = userActivation.topline1text {
-//                    initialViewController.topLine1Label.text = line1
-////                        print(line1)
-//
-//                    }
-                
                     self.window?.rootViewController = initialViewController
                     self.window?.makeKeyAndVisible()
-
-//                    initialViewController.topLine1Label.text = userActivation.topline1text
-//                    initialViewController.topLine2Label.text = userActivation.topline2text
-                    
-                    
                 }
                 else {
 //                    errorScreen

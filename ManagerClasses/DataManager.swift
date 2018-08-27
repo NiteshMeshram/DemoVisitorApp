@@ -18,6 +18,7 @@ enum URI {
         //http://dev.visitorbay.com/api/?a=device-info&deviceid=1111111111111
         case .UserActivation: return "" //"http://dev.visitorbay.com/api"
             
+        //http://dev.visitorbay.com/api/?a=activate-device&deviceid=<>&acode=<activationcode>
         }
     }
 }
@@ -46,6 +47,25 @@ class DataManager {
     }
     //MARK: - Registration
     class func userActivation(userDetailDict: [String:Any], closure: @escaping(Result<UserActivation,String>) ->Void){
+        
+        ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
+            
+            switch Result {
+            case .success(let jsonResponse):
+                var userActivation = UserActivation()
+                userActivation = UserActivation.convertJsonToObject(jsonString: jsonResponse)
+                closure(.success(userActivation))
+                break
+            case .failure(let errorMessage):
+                closure(.failure(errorMessage))
+            }
+        }
+    }
+    
+    
+    // Activation
+    
+    class func activationWithKey(userDetailDict: [String:Any], closure: @escaping(Result<UserActivation,String>) ->Void){
         
         ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
             
