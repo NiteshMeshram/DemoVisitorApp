@@ -81,4 +81,24 @@ class DataManager {
         }
     }
     
+    
+//    http://dev.visitorbay.com/api/?a=pair-device&deviceid=<DEVICEID>
+    
+    // Activation
+    
+    class func pairDevice(userDetailDict: [String:Any], closure: @escaping(Result<UserActivation,String>) ->Void){
+        
+        ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
+            
+            switch Result {
+            case .success(let jsonResponse):
+                var userActivation = UserActivation()
+                userActivation = UserActivation.convertJsonToObject(jsonString: jsonResponse)
+                closure(.success(userActivation))
+                break
+            case .failure(let errorMessage):
+                closure(.failure(errorMessage))
+            }
+        }
+    }
 }

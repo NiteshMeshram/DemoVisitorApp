@@ -56,9 +56,9 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     }
     
     @IBAction func activateNowClicked(_ sender: Any) {
-        self.activationAPICall()
+//        self.activationAPICall()
 
-//        self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
+        self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
     }
     
 
