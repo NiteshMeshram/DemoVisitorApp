@@ -47,14 +47,14 @@ class DataManager {
         DataManager.userDeviceId = (UIDevice.current.identifierForVendor?.uuidString)!
     }
     //MARK: - Registration
-    class func userActivation(userDetailDict: [String:Any], closure: @escaping(Result<UserActivation,String>) ->Void){
+    class func userActivation(userDetailDict: [String:Any], closure: @escaping(Result<UserDeviceDetails,String>) ->Void){
         
         ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
             
             switch Result {
             case .success(let jsonResponse):
-                var userActivation = UserActivation()
-                userActivation = UserActivation.convertJsonToObject(jsonString: jsonResponse)
+//                var userActivation = UserDeviceDetails()
+                var userActivation =  UserDeviceDetails.convertJsonToObject(jsonString: jsonResponse)!
                 closure(.success(userActivation))
                 break
             case .failure(let errorMessage):
@@ -62,6 +62,7 @@ class DataManager {
             }
         }
     }
+    
     
     
     // Activation
@@ -82,24 +83,4 @@ class DataManager {
         }
     }
     
-    
-//    http://dev.visitorbay.com/api/?a=pair-device&deviceid=<DEVICEID>
-    
-    // Activation
-    
-    class func pairDevice(userDetailDict: [String:Any], closure: @escaping(Result<UserDevicePairingDetails,String>) ->Void){
-        
-        ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
-            
-            switch Result {
-            case .success(let jsonResponse):
-                var userActivation = UserDevicePairingDetails()
-                userActivation = UserDevicePairingDetails.convertJsonToObject(jsonString: jsonResponse)
-                closure(.success(userActivation))
-                break
-            case .failure(let errorMessage):
-                closure(.failure(errorMessage))
-            }
-        }
-    }
 }

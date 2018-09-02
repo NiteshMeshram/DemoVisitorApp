@@ -22,5 +22,6 @@ extension UserDeviceDetails {
     @NSManaged public var deviceUniqueId: String?
     @NSManaged public var topline1text: String?
     @NSManaged public var topline2text: String?
+    @NSManaged public var hasError: String?
 
 }

@@ -13,4 +13,5 @@ import CoreData
 @objc(DeviceActivationDetails)
 public class DeviceActivationDetails: NSManagedObject {
 
+    
 }

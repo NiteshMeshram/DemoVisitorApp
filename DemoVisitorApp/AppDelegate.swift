@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Get the reference to the Managed Object Context
         // from the persistent coordinator.
-        let context = self.persistentContainer.viewContext
+//        let context = self.persistentContainer.viewContext
         
         self.databasePath()
         var loginDict = [String: Any]()
@@ -33,31 +33,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else {
             // not exist
             self.userDeviceId = UIDevice.current.identifierForVendor?.uuidString
+            userDefaults.set(self.userDeviceId, forKey: "userDeviceId") //setObject
+            userDefaults.synchronize()
         }
         
-        loginDict = ["a":"device-info" ,"deviceid":self.userDeviceId!]
+        loginDict = ["a":"device-info" ,"deviceid":self.userDeviceId]
 //        loginDict = ["a":"device-info" ,"deviceid":"8485485845845eerer434343"]
         
 //        ?a=activate-device&deviceid=<>&acode=<activationcode>
 
         print(loginDict)
-        DataManager.userActivation(userDetailDict: loginDict, closure: {Result in
+        
+        if let deviceInfo = UserDeviceDetails.checkDataExistOrNot() {
+//            print("Data Exist \(deviceInfo)")
             
-            switch Result {
-            case .success(let userActivation):
+            if deviceInfo.hasError == VisitorError.success.rawValue{
+                self.window = UIWindow(frame: UIScreen.main.bounds)
                 
-                if userActivation.hasError == VisitorError.success.rawValue{
-                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "activationView") as! HomeViewController
+                initialViewController.userActivation = deviceInfo
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+            }
+        }
+        else {
+            DataManager.userActivation(userDetailDict: loginDict, closure: {Result in
+                
+                switch Result {
+                case .success(let userActivation):
                     
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    
-                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "activationView") as! HomeViewController
+                    if userActivation.hasError == VisitorError.success.rawValue{
+                        self.window = UIWindow(frame: UIScreen.main.bounds)
+                        
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        
+                        let initialViewController = storyboard.instantiateViewController(withIdentifier: "activationView") as! HomeViewController
                         initialViewController.userActivation = userActivation
-                    self.window?.rootViewController = initialViewController
-                    self.window?.makeKeyAndVisible()
-                }
-                else {
-//                    errorScreen
+                        self.window?.rootViewController = initialViewController
+                        self.window?.makeKeyAndVisible()
+                    }
+                    else {
+                        //                    errorScreen
+                        self.window = UIWindow(frame: UIScreen.main.bounds)
+                        
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        
+                        let initialViewController = storyboard.instantiateViewController(withIdentifier: "errorScreen") as! ErrorViewController
+                        
+                        
+                        self.window?.rootViewController = initialViewController
+                        self.window?.makeKeyAndVisible()
+                    }
+                    break
+                case .failure(let errorMessage):
+                    print(errorMessage)
                     self.window = UIWindow(frame: UIScreen.main.bounds)
                     
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -67,25 +98,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     self.window?.rootViewController = initialViewController
                     self.window?.makeKeyAndVisible()
+                    break
                 }
-                break
-            case .failure(let errorMessage):
-                print(errorMessage)
-                self.window = UIWindow(frame: UIScreen.main.bounds)
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                
-                let initialViewController = storyboard.instantiateViewController(withIdentifier: "errorScreen") as! ErrorViewController
-
-                
-                self.window?.rootViewController = initialViewController
-                self.window?.makeKeyAndVisible()
-                break
-            }
-        })
+            })
+        }
+        
+        
+        
+        
+        
+        
         
          IQKeyboardManager.sharedManager().enable = true
         
+        CoreDataStack.sharedInstance.applicationDocumentsDirectory()
         return true
     }
 
@@ -110,54 +136,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
+        CoreDataStack.sharedInstance.saveContext()
     }
-
-    // MARK: - Core Data stack
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
-        let container = NSPersistentContainer(name: "DemoVisitorApp")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-
-    // MARK: - Core Data Saving support
-
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-    
     func databasePath() {
 //        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 //        print(urls[urls.count-1] as URL)

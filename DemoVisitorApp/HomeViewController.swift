@@ -22,7 +22,7 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     @IBOutlet weak var activationCodeText: UITextField!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
-    var userActivation: UserActivation?
+    var userActivation: UserDeviceDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,11 +129,7 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
         loginDict = ["a":"activate-device" ,
                      "deviceid":self.userDeviceId!,
                      "acode": self.userActivation?.activation_code as! String]
-        //loginDict = ["a":"device-info" ,"deviceid":"8485485845845eerer434343"]
-        
-        //        ?a=activate-device&deviceid=<>&acode=<activationcode>
-        
-        print(loginDict)
+
         DataManager.activationWithKey(userDetailDict: loginDict, closure: {Result in
             
             switch Result {

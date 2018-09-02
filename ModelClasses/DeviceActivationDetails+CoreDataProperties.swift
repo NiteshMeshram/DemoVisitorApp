@@ -29,5 +29,6 @@ extension DeviceActivationDetails {
     @NSManaged public var logoURL: String?
     @NSManaged public var responseApikey: String?
     @NSManaged public var welcometxt: String?
+    @NSManaged public var hasError: String?
 
 }
