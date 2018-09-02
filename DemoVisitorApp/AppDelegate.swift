@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        // Get the reference to the Managed Object Context
+        // from the persistent coordinator.
+        let context = self.persistentContainer.viewContext
+        
+        self.databasePath()
         var loginDict = [String: Any]()
         let userDefaults = UserDefaults.standard
         if let key = userDefaults.object(forKey: "userDeviceId"){
@@ -31,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         loginDict = ["a":"device-info" ,"deviceid":self.userDeviceId!]
-        //loginDict = ["a":"device-info" ,"deviceid":"8485485845845eerer434343"]
+//        loginDict = ["a":"device-info" ,"deviceid":"8485485845845eerer434343"]
         
 //        ?a=activate-device&deviceid=<>&acode=<activationcode>
 
@@ -151,6 +156,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func databasePath() {
+//        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        print(urls[urls.count-1] as URL)
+        
+        let path = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
+        print("\(path)")
+
     }
 
 }

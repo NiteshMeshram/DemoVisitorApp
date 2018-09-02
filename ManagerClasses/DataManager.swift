@@ -26,6 +26,7 @@ enum URI {
 enum VisitorError: String {
     case fail = "1"
     case success = "0"
+    case resposeCode = "105"
 }
 
 
@@ -65,14 +66,14 @@ class DataManager {
     
     // Activation
     
-    class func activationWithKey(userDetailDict: [String:Any], closure: @escaping(Result<UserActivation,String>) ->Void){
+    class func activationWithKey(userDetailDict: [String:Any], closure: @escaping(Result<UserDevicePairingDetails,String>) ->Void){
         
         ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
             
             switch Result {
             case .success(let jsonResponse):
-                var userActivation = UserActivation()
-                userActivation = UserActivation.convertJsonToObject(jsonString: jsonResponse)
+                var userActivation = UserDevicePairingDetails()
+                userActivation = UserDevicePairingDetails.convertJsonToObject(jsonString: jsonResponse)
                 closure(.success(userActivation))
                 break
             case .failure(let errorMessage):
@@ -86,14 +87,14 @@ class DataManager {
     
     // Activation
     
-    class func pairDevice(userDetailDict: [String:Any], closure: @escaping(Result<UserActivation,String>) ->Void){
+    class func pairDevice(userDetailDict: [String:Any], closure: @escaping(Result<UserDevicePairingDetails,String>) ->Void){
         
         ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
             
             switch Result {
             case .success(let jsonResponse):
-                var userActivation = UserActivation()
-                userActivation = UserActivation.convertJsonToObject(jsonString: jsonResponse)
+                var userActivation = UserDevicePairingDetails()
+                userActivation = UserDevicePairingDetails.convertJsonToObject(jsonString: jsonResponse)
                 closure(.success(userActivation))
                 break
             case .failure(let errorMessage):

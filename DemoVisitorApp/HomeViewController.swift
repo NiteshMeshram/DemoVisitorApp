@@ -56,9 +56,9 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     }
     
     @IBAction func activateNowClicked(_ sender: Any) {
-//        self.activationAPICall()
+        self.activationAPICall()
 
-        self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
+//        self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
     }
     
 
@@ -100,6 +100,17 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
         return true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mainFlowSegue" {
+//            let videoPlayerViewController = segue.destination as? FNSAVPlayerViewController
+//
+//            if let _ = mediaArray[selectedIndex].url {
+//                videoPlayerViewController?.videoURL = mediaArray[selectedIndex].url!
+//            }
+        }
+    }
+    
+    
     func activationAPICall() {
         var loginDict = [String: Any]()
         
@@ -126,14 +137,15 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
         DataManager.activationWithKey(userDetailDict: loginDict, closure: {Result in
             
             switch Result {
-            case .success(let userActivation):
+            case .success(let activationDetails):
+//                self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
                 
-                if userActivation.hasError == VisitorError.success.rawValue{
-                    
+                if !activationDetails.hasError {
+                    self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
+
                 }
                 else {
-                    //                    errorScreen
-                    
+
                 }
                 break
             case .failure(let errorMessage):
