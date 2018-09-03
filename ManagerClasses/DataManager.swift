@@ -66,15 +66,51 @@ class DataManager {
     
     
     // Activation
-    
-    class func activationWithKey(userDetailDict: [String:Any], closure: @escaping(Result<UserDevicePairingDetails,String>) ->Void){
+    /*
+    class func activationWithKey(userDetailDict: [String:Any], closure: @escaping(Result<DeviceActivationDetails,String>) ->Void){
         
         ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
             
             switch Result {
             case .success(let jsonResponse):
-                var userActivation = UserDevicePairingDetails()
-                userActivation = UserDevicePairingDetails.convertJsonToObject(jsonString: jsonResponse)
+                var deviceActivation = DeviceActivationDetails.convertJsonToObject(jsonString: jsonResponse)
+                    
+//                    DeviceActivationDetails.convertJsonToObject(jsonString: jsonResponse)
+//                closure(.success(deviceActivation))
+//                closure(.success(deviceActivation))
+                closure(.success(deviceActivation))
+                break
+            case .failure(let errorMessage):
+                closure(.failure(errorMessage))
+            }
+        }
+    }*/
+    
+    /*
+    class func activationWithKey(userDetailDict: [String:Any], closure: @escaping(Result<DeviceActivationDetails,String>) ->Void){
+        ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
+            
+            switch Result {
+            case .success(let jsonResponse):
+                var deviceActivation1 = DeviceActivationDetails.convertJsonToObject(jsonString: jsonResponse)
+                closure(.success(deviceActivation1))
+            case .failure(let errorMessage):
+                closure(.failure(errorMessage))
+                
+            }
+        }
+        
+    }*/
+    
+    
+    class func activationWithKey(userDetailDict: [String:Any], closure: @escaping(Result<DeviceActivationDetails,String>) ->Void){
+        
+        ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
+            
+            switch Result {
+            case .success(let jsonResponse):
+                //                var userActivation = UserDeviceDetails()
+                var userActivation =  DeviceActivationDetails.convertJsonToObject(jsonString: jsonResponse)!
                 closure(.success(userActivation))
                 break
             case .failure(let errorMessage):

@@ -44,19 +44,9 @@ public class UserDeviceDetails: NSManagedObject {
                     let context = CoreDataStack.sharedInstance.persistentContainer.viewContext
                     if let deviceEntity = NSEntityDescription.insertNewObject(forEntityName: "UserDeviceDetails", into: context) as? UserDeviceDetails {
                         
-                        
-//                        UserDefaults.standard.string(forKey: "userDeviceId")
-                        
                         let uuid: String? = UserDefaults.standard.object(forKey: "userDeviceId") as? String
                         deviceEntity.deviceUniqueId = uuid
 
-                        
-//                        let userDefaults = UserDefaults.standard
-//                        if let key = userDefaults.object(forKey: "userDeviceId"){
-//                            if let uuid = userDefaults.string(forKey: key as! String){
-//                                deviceEntity.deviceUniqueId = uuid
-//                            }
-//                        }
                         if let topLineText = dict["topline1text"]?.stringValue{
                             deviceEntity.topline1text = topLineText
                         }

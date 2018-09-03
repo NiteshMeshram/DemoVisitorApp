@@ -114,28 +114,32 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     func activationAPICall() {
         var loginDict = [String: Any]()
         
-        let userDefaults = UserDefaults.standard
-        if let key = userDefaults.object(forKey: "userDeviceId"){
-            // exist
-            if let uuid = userDefaults.string(forKey: key as! String){
-                self.userDeviceId = uuid
-            }
-        }
-        else {
-            // not exist
-            self.userDeviceId = UIDevice.current.identifierForVendor?.uuidString
+//        let userDefaults = UserDefaults.standard
+//        if let key = userDefaults.object(forKey: "userDeviceId"){
+//            // exist
+//            if let uuid = userDefaults.string(forKey: key as! String){
+//                self.userDeviceId = uuid
+//            }
+//        }
+//        else {
+//            // not exist
+//            self.userDeviceId = UIDevice.current.identifierForVendor?.uuidString
+//        }
+        
+        if let deviceInfo = UserDeviceDetails.checkDataExistOrNot() {
+            loginDict = ["a":"activate-device" ,
+                         "deviceid":deviceInfo.deviceUniqueId!,
+                         "acode": deviceInfo.activation_code!]
         }
         
-        loginDict = ["a":"activate-device" ,
-                     "deviceid":self.userDeviceId!,
-                     "acode": self.userActivation?.activation_code as! String]
+        
 
         DataManager.activationWithKey(userDetailDict: loginDict, closure: {Result in
             
             switch Result {
             case .success(let activationDetails):
 //                self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
-                
+                /*
                 if !activationDetails.hasError {
                     self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
 
@@ -143,6 +147,7 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
                 else {
 
                 }
+                */
                 break
             case .failure(let errorMessage):
                 print(errorMessage)
