@@ -18,6 +18,15 @@ class CompanyViewController: BaseviewController {
     var comingFrom: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UserDefaults.standard.hasValue(forKey: "loggedInUser") {
+
+        }
+        else {
+            let defaults = UserDefaults.standard
+            defaults.set(true, forKey: "loggedInUser")
+            defaults.synchronize()
+        }
 
         self.AdjustConstraint()
         // Do any additional setup after loading the view, typically from a nib.

@@ -16,29 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var userDeviceId: String?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        // Get the reference to the Managed Object Context
-        // from the persistent coordinator.
-//        let context = self.persistentContainer.viewContext
-        
-//        if UserDefaults.standard.hasValue(forKey: "deviceUDID") {
-//            let defaults = UserDefaults.standard
-//            let deviceId = defaults.string(forKey: "deviceUDID") //Retrieving the value from user default
-//
-//            print(deviceId!)  // Printing the value
-//        }
-//        else {
-//            let defaults = UserDefaults.standard
-//            defaults.set(UIDevice.current.identifierForVendor?.uuidString, forKey: "deviceUDID")
-//            defaults.synchronize()
-//        }
-
         
         self.databasePath()
         
-        
-        
-//        UserDeviceDetails.createDeviceEntity()
         var loginDict = [String: Any]()
         if let deviceInfo = UserDeviceDetails.checkDeviceId() {
             loginDict = ["a":"device-info" ,"deviceid":deviceInfo.deviceUniqueId!]
@@ -52,7 +32,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch Result {
             case .success(let userActivation):
                 
-                if userActivation.hasError == VisitorError.success.rawValue{
+                if UserDefaults.standard.hasValue(forKey: "loggedInUser") {
+                    print("loggedInUser")
+                    
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "signInOutScreen") as! CompanyViewController
+//                    initialViewController.userActivation = userActivation
+                    self.window?.rootViewController = initialViewController
+                    self.window?.makeKeyAndVisible()
+                }else if userActivation.hasError == VisitorError.success.rawValue{
                     self.window = UIWindow(frame: UIScreen.main.bounds)
                     
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
