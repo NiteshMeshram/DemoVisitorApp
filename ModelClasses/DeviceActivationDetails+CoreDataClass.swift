@@ -2,7 +2,7 @@
 //  DeviceActivationDetails+CoreDataClass.swift
 //  DemoVisitorApp
 //
-//  Created by Nitesh Meshram on 02/09/18.
+//  Created by Nitesh Meshram on 04/09/18.
 //  Copyright © 2018 V2Solutions. All rights reserved.
 //
 //
@@ -14,9 +14,8 @@ import SwiftyJSON
 
 @objc(DeviceActivationDetails)
 public class DeviceActivationDetails: NSManagedObject {
-    
-    
-    static func convertJsonToObject(jsonString: JSON) -> DeviceActivationDetails? {
+
+    static func convertJsonToObject(jsonString: JSON, userDeviceId: String) -> DeviceActivationDetails? {
         if let errorDict = jsonString["error"].dictionary {
             
             if errorDict["hasError"]?.stringValue == VisitorError.success.rawValue {
@@ -26,6 +25,7 @@ public class DeviceActivationDetails: NSManagedObject {
                     let context = CoreDataStack.sharedInstance.persistentContainer.viewContext
                     if let activationEntity = NSEntityDescription.insertNewObject(forEntityName: "DeviceActivationDetails", into: context) as? DeviceActivationDetails {
                         
+                        activationEntity.deviceUniqueId = userDeviceId
                         
                         if let appui = jsonString["appui"].dictionary {
                             if let fontcolor = appui["fontcolor"]?.stringValue{
@@ -59,11 +59,41 @@ public class DeviceActivationDetails: NSManagedObject {
                             
                         }
                         
+                        if let errorCode = errorDict["hasError"]?.stringValue {
+                            activationEntity.hasError = errorCode
+                        }
+                        
+                        do {
+                            try CoreDataStack.sharedInstance.persistentContainer.viewContext.save()
+                        } catch let error {
+                            print(error)
+                        }
                         
                         return activationEntity
                     }
                 }
                 
+            }
+            else {
+                let context = CoreDataStack.sharedInstance.persistentContainer.viewContext
+                if let activationEntity = NSEntityDescription.insertNewObject(forEntityName: "DeviceActivationDetails", into: context) as? DeviceActivationDetails {
+                    
+                    activationEntity.deviceUniqueId = userDeviceId
+                    
+                    if let errorCode = errorDict["hasError"]?.stringValue {
+                        activationEntity.hasError = errorCode
+                    }
+                    if let errorMessage = errorDict["error"]?.stringValue {
+                        activationEntity.errorMessage = errorMessage
+                    }
+                    
+                    do {
+                        try CoreDataStack.sharedInstance.persistentContainer.viewContext.save()
+                    } catch let error {
+                        print(error)
+                    }
+                    return activationEntity
+                }
             }
         }
         return nil

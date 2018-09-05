@@ -47,12 +47,12 @@
 		386B8DDC210821770085392F /* SharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B8DD8210821770085392F /* SharedManager.swift */; };
 		386B8DDD210821770085392F /* UserActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B8DD9210821770085392F /* UserActivation.swift */; };
 		386B8DDF2110D51E0085392F /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B8DDE2110D51E0085392F /* SplashScreenViewController.swift */; };
+		38815174213EC31700964153 /* UserDeviceDetails+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38815170213EC31700964153 /* UserDeviceDetails+CoreDataClass.swift */; };
+		38815175213EC31700964153 /* UserDeviceDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38815171213EC31700964153 /* UserDeviceDetails+CoreDataProperties.swift */; };
+		38815176213EC31700964153 /* DeviceActivationDetails+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38815172213EC31700964153 /* DeviceActivationDetails+CoreDataClass.swift */; };
+		38815177213EC31700964153 /* DeviceActivationDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38815173213EC31700964153 /* DeviceActivationDetails+CoreDataProperties.swift */; };
 		3887F944213AD6BA00A86B08 /* UserDevicePairingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3887F943213AD6BA00A86B08 /* UserDevicePairingDetails.swift */; };
 		38B20E85213C563200607503 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B20E84213C563200607503 /* CoreDataStack.swift */; };
-		38B20E8E213C5B6D00607503 /* DeviceActivationDetails+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B20E8A213C5B6D00607503 /* DeviceActivationDetails+CoreDataClass.swift */; };
-		38B20E8F213C5B6D00607503 /* DeviceActivationDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B20E8B213C5B6D00607503 /* DeviceActivationDetails+CoreDataProperties.swift */; };
-		38B20E90213C5B6D00607503 /* UserDeviceDetails+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B20E8C213C5B6D00607503 /* UserDeviceDetails+CoreDataClass.swift */; };
-		38B20E91213C5B6D00607503 /* UserDeviceDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B20E8D213C5B6D00607503 /* UserDeviceDetails+CoreDataProperties.swift */; };
 		ED1F8A630A28927BCEDBD749 /* Pods_DemoVisitorApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED11E36A2257DE4D3F9D6AD2 /* Pods_DemoVisitorApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -121,12 +121,12 @@
 		386B8DD8210821770085392F /* SharedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedManager.swift; sourceTree = "<group>"; };
 		386B8DD9210821770085392F /* UserActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivation.swift; sourceTree = "<group>"; };
 		386B8DDE2110D51E0085392F /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		38815170213EC31700964153 /* UserDeviceDetails+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDeviceDetails+CoreDataClass.swift"; sourceTree = "<group>"; };
+		38815171213EC31700964153 /* UserDeviceDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDeviceDetails+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		38815172213EC31700964153 /* DeviceActivationDetails+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceActivationDetails+CoreDataClass.swift"; sourceTree = "<group>"; };
+		38815173213EC31700964153 /* DeviceActivationDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceActivationDetails+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3887F943213AD6BA00A86B08 /* UserDevicePairingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDevicePairingDetails.swift; sourceTree = "<group>"; };
 		38B20E84213C563200607503 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		38B20E8A213C5B6D00607503 /* DeviceActivationDetails+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceActivationDetails+CoreDataClass.swift"; sourceTree = "<group>"; };
-		38B20E8B213C5B6D00607503 /* DeviceActivationDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceActivationDetails+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		38B20E8C213C5B6D00607503 /* UserDeviceDetails+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDeviceDetails+CoreDataClass.swift"; sourceTree = "<group>"; };
-		38B20E8D213C5B6D00607503 /* UserDeviceDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDeviceDetails+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		783AABDC4CA4051A8F81A68B /* Pods-DemoVisitorApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoVisitorApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoVisitorApp/Pods-DemoVisitorApp.release.xcconfig"; sourceTree = "<group>"; };
 		94F213BA3894D84CDDE46998 /* Pods-DemoVisitorApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoVisitorApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoVisitorApp/Pods-DemoVisitorApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ED11E36A2257DE4D3F9D6AD2 /* Pods_DemoVisitorApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoVisitorApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,10 +312,10 @@
 		386B8DD7210821770085392F /* ModelClasses */ = {
 			isa = PBXGroup;
 			children = (
-				38B20E8A213C5B6D00607503 /* DeviceActivationDetails+CoreDataClass.swift */,
-				38B20E8B213C5B6D00607503 /* DeviceActivationDetails+CoreDataProperties.swift */,
-				38B20E8C213C5B6D00607503 /* UserDeviceDetails+CoreDataClass.swift */,
-				38B20E8D213C5B6D00607503 /* UserDeviceDetails+CoreDataProperties.swift */,
+				38815170213EC31700964153 /* UserDeviceDetails+CoreDataClass.swift */,
+				38815171213EC31700964153 /* UserDeviceDetails+CoreDataProperties.swift */,
+				38815172213EC31700964153 /* DeviceActivationDetails+CoreDataClass.swift */,
+				38815173213EC31700964153 /* DeviceActivationDetails+CoreDataProperties.swift */,
 				386B8DD8210821770085392F /* SharedManager.swift */,
 				386B8DD9210821770085392F /* UserActivation.swift */,
 				3887F943213AD6BA00A86B08 /* UserDevicePairingDetails.swift */,
@@ -517,27 +517,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38B20E8F213C5B6D00607503 /* DeviceActivationDetails+CoreDataProperties.swift in Sources */,
 				221CED6920B099EB005D7BA9 /* SearchViewController.swift in Sources */,
+				38815177213EC31700964153 /* DeviceActivationDetails+CoreDataProperties.swift in Sources */,
 				22FDB144205EB4EC003A860A /* PurposeViewController.swift in Sources */,
 				386B8DDD210821770085392F /* UserActivation.swift in Sources */,
 				0027D17820F4F1B5000A618D /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				22FDB146205EB50B003A860A /* UserViewController.swift in Sources */,
 				38B20E85213C563200607503 /* CoreDataStack.swift in Sources */,
 				222F6A7220D54CCD004EFA91 /* BaseviewController.swift in Sources */,
-				38B20E91213C5B6D00607503 /* UserDeviceDetails+CoreDataProperties.swift in Sources */,
 				22FDB142205EB4C9003A860A /* CompanyViewController.swift in Sources */,
 				386B8DDC210821770085392F /* SharedManager.swift in Sources */,
 				00CE48CC204D23E1008FC9DA /* DemoVisitorApp.xcdatamodeld in Sources */,
 				0027D17A20F4F1B5000A618D /* IQBarButtonItem.swift in Sources */,
 				386B8DDF2110D51E0085392F /* SplashScreenViewController.swift in Sources */,
 				0027D17320F4F1B5000A618D /* IQUIViewController+Additions.swift in Sources */,
+				38815174213EC31700964153 /* UserDeviceDetails+CoreDataClass.swift in Sources */,
 				386B8DDB210821770085392F /* ServerManager.swift in Sources */,
 				0027D17E20F4F1B5000A618D /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				2227E2B720867185003EAD0B /* ThankyouViewController.swift in Sources */,
 				00CE48C6204D23E1008FC9DA /* HomeViewController.swift in Sources */,
 				382992D2211A0A4F00B1D164 /* ErrorViewController.swift in Sources */,
-				38B20E8E213C5B6D00607503 /* DeviceActivationDetails+CoreDataClass.swift in Sources */,
 				0027D17D20F4F1B5000A618D /* IQToolbar.swift in Sources */,
 				3887F944213AD6BA00A86B08 /* UserDevicePairingDetails.swift in Sources */,
 				0027D16F20F4F1B5000A618D /* IQNSArray+Sort.swift in Sources */,
@@ -545,8 +544,8 @@
 				2227E2B32086707E003EAD0B /* AgreementViewController.swift in Sources */,
 				2227E2B52086713A003EAD0B /* ProfileViewController.swift in Sources */,
 				386B8DDA210821770085392F /* DataManager.swift in Sources */,
-				38B20E90213C5B6D00607503 /* UserDeviceDetails+CoreDataClass.swift in Sources */,
 				0027D17620F4F1B5000A618D /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				38815175213EC31700964153 /* UserDeviceDetails+CoreDataProperties.swift in Sources */,
 				0027D17020F4F1B5000A618D /* IQUIScrollView+Additions.swift in Sources */,
 				0027D17420F4F1B5000A618D /* IQUIWindow+Hierarchy.swift in Sources */,
 				0027D17720F4F1B5000A618D /* IQKeyboardManager.swift in Sources */,
@@ -555,6 +554,7 @@
 				0027D17920F4F1B5000A618D /* IQTextView.swift in Sources */,
 				0027D17220F4F1B5000A618D /* IQUIView+Hierarchy.swift in Sources */,
 				00CE48C4204D23E1008FC9DA /* AppDelegate.swift in Sources */,
+				38815176213EC31700964153 /* DeviceActivationDetails+CoreDataClass.swift in Sources */,
 				0027D17C20F4F1B5000A618D /* IQTitleBarButtonItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,32 +21,81 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // from the persistent coordinator.
 //        let context = self.persistentContainer.viewContext
         
-        self.databasePath()
-        var loginDict = [String: Any]()
-        let userDefaults = UserDefaults.standard
-        if let key = userDefaults.object(forKey: "userDeviceId"){
-            // exist
-            if let uuid = userDefaults.string(forKey: key as! String){
-                self.userDeviceId = uuid
-            }
-        }
-        else {
-            // not exist
-            self.userDeviceId = UIDevice.current.identifierForVendor?.uuidString
-            userDefaults.set(self.userDeviceId, forKey: "userDeviceId") //setObject
-            userDefaults.synchronize()
-        }
-        
-        loginDict = ["a":"device-info" ,"deviceid":self.userDeviceId]
-//        loginDict = ["a":"device-info" ,"deviceid":"8485485845845eerer434343"]
-        
-//        ?a=activate-device&deviceid=<>&acode=<activationcode>
+//        if UserDefaults.standard.hasValue(forKey: "deviceUDID") {
+//            let defaults = UserDefaults.standard
+//            let deviceId = defaults.string(forKey: "deviceUDID") //Retrieving the value from user default
+//
+//            print(deviceId!)  // Printing the value
+//        }
+//        else {
+//            let defaults = UserDefaults.standard
+//            defaults.set(UIDevice.current.identifierForVendor?.uuidString, forKey: "deviceUDID")
+//            defaults.synchronize()
+//        }
 
+        
+        self.databasePath()
+        
+        
+        
+//        UserDeviceDetails.createDeviceEntity()
+        var loginDict = [String: Any]()
+        if let deviceInfo = UserDeviceDetails.checkDeviceId() {
+            loginDict = ["a":"device-info" ,"deviceid":deviceInfo.deviceUniqueId!]
+        }
+        
         print(loginDict)
         
-        if let deviceInfo = UserDeviceDetails.checkDataExistOrNot() {
-//            print("Data Exist \(deviceInfo)")
+        
+        DataManager.userActivation(userDetailDict: loginDict, closure: {Result in
             
+            switch Result {
+            case .success(let userActivation):
+                
+                if userActivation.hasError == VisitorError.success.rawValue{
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "activationView") as! HomeViewController
+                    initialViewController.userActivation = userActivation
+                    self.window?.rootViewController = initialViewController
+                    self.window?.makeKeyAndVisible()
+                }
+                else {
+                    //                    errorScreen
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "errorScreen") as! ErrorViewController
+                    
+                    
+                    self.window?.rootViewController = initialViewController
+                    self.window?.makeKeyAndVisible()
+                    
+                }
+                break
+            case .failure(let errorMessage):
+                print(errorMessage)
+                
+                self.window = UIWindow(frame: UIScreen.main.bounds)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "errorScreen") as! ErrorViewController
+                
+                
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+                
+            }
+        })
+
+        
+//        if let deviceInfo = UserDeviceDetails.checkDeviceActivationCode() {
+        
+            /*
             if deviceInfo.hasError == VisitorError.success.rawValue{
                 self.window = UIWindow(frame: UIScreen.main.bounds)
                 
@@ -57,8 +106,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.rootViewController = initialViewController
                 self.window?.makeKeyAndVisible()
             }
-        }
-        else {
+            */
+            
+            
+        
+            
+//        }
+        
+        /*else {
             DataManager.userActivation(userDetailDict: loginDict, closure: {Result in
                 
                 switch Result {
@@ -102,7 +157,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             })
         }
-        
+        */
         
         
         
@@ -172,3 +227,9 @@ class Switcher {
     
 }
 
+extension UserDefaults {
+    
+    func hasValue(forKey key: String) -> Bool {
+        return nil != object(forKey: key)
+    }
+}

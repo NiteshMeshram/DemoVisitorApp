@@ -54,7 +54,9 @@ class DataManager {
             switch Result {
             case .success(let jsonResponse):
 //                var userActivation = UserDeviceDetails()
-                var userActivation =  UserDeviceDetails.convertJsonToObject(jsonString: jsonResponse)!
+//                var userActivation =  UserDeviceDetails.convertJsonToObject(jsonString: jsonResponse)!
+                var userActivation =  UserDeviceDetails.convertJsonToObject(jsonString: jsonResponse, deviceId: userDetailDict["deviceid"] as! String)!
+                
                 closure(.success(userActivation))
                 break
             case .failure(let errorMessage):
@@ -66,51 +68,14 @@ class DataManager {
     
     
     // Activation
-    /*
+
     class func activationWithKey(userDetailDict: [String:Any], closure: @escaping(Result<DeviceActivationDetails,String>) ->Void){
         
         ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
             
             switch Result {
             case .success(let jsonResponse):
-                var deviceActivation = DeviceActivationDetails.convertJsonToObject(jsonString: jsonResponse)
-                    
-//                    DeviceActivationDetails.convertJsonToObject(jsonString: jsonResponse)
-//                closure(.success(deviceActivation))
-//                closure(.success(deviceActivation))
-                closure(.success(deviceActivation))
-                break
-            case .failure(let errorMessage):
-                closure(.failure(errorMessage))
-            }
-        }
-    }*/
-    
-    /*
-    class func activationWithKey(userDetailDict: [String:Any], closure: @escaping(Result<DeviceActivationDetails,String>) ->Void){
-        ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
-            
-            switch Result {
-            case .success(let jsonResponse):
-                var deviceActivation1 = DeviceActivationDetails.convertJsonToObject(jsonString: jsonResponse)
-                closure(.success(deviceActivation1))
-            case .failure(let errorMessage):
-                closure(.failure(errorMessage))
-                
-            }
-        }
-        
-    }*/
-    
-    
-    class func activationWithKey(userDetailDict: [String:Any], closure: @escaping(Result<DeviceActivationDetails,String>) ->Void){
-        
-        ServerManager.sharedInstance().getRequest(queryStringData: userDetailDict, apiName: .UserActivation, extraHeader: nil) { Result in
-            
-            switch Result {
-            case .success(let jsonResponse):
-                //                var userActivation = UserDeviceDetails()
-                var userActivation =  DeviceActivationDetails.convertJsonToObject(jsonString: jsonResponse)!
+                var userActivation = DeviceActivationDetails.convertJsonToObject(jsonString: jsonResponse, userDeviceId: userDetailDict["deviceid"] as! String)!
                 closure(.success(userActivation))
                 break
             case .failure(let errorMessage):

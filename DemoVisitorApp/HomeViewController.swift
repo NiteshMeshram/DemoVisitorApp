@@ -88,13 +88,6 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
         }
     }
     
-//    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return false to ignore.
-//    {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-    
-
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -102,29 +95,13 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mainFlowSegue" {
-//            let videoPlayerViewController = segue.destination as? FNSAVPlayerViewController
-//
-//            if let _ = mediaArray[selectedIndex].url {
-//                videoPlayerViewController?.videoURL = mediaArray[selectedIndex].url!
-//            }
+
         }
     }
     
     
     func activationAPICall() {
         var loginDict = [String: Any]()
-        
-//        let userDefaults = UserDefaults.standard
-//        if let key = userDefaults.object(forKey: "userDeviceId"){
-//            // exist
-//            if let uuid = userDefaults.string(forKey: key as! String){
-//                self.userDeviceId = uuid
-//            }
-//        }
-//        else {
-//            // not exist
-//            self.userDeviceId = UIDevice.current.identifierForVendor?.uuidString
-//        }
         
         if let deviceInfo = UserDeviceDetails.checkDataExistOrNot() {
             loginDict = ["a":"activate-device" ,
@@ -139,15 +116,24 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
             switch Result {
             case .success(let activationDetails):
 //                self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
-                /*
-                if !activationDetails.hasError {
+                
+                if activationDetails.hasError == VisitorError.success.rawValue{
                     self.performSegue(withIdentifier: "mainFlowSegue", sender: nil)
-
                 }
                 else {
-
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "errorScreen") as! ErrorViewController
+                    
+                    if let errorMsg = activationDetails.errorMessage {
+                        initialViewController.errorMessgeText = errorMsg
+                    }
+                    self.present(initialViewController, animated: true, completion: nil)
                 }
-                */
+                
+
+                
                 break
             case .failure(let errorMessage):
                 print(errorMessage)

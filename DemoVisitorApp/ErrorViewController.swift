@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 
 class ErrorViewController: BaseviewController,UITextFieldDelegate {
+    @IBOutlet weak var errorLabel: UILabel!
+    var errorMessgeText: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.errorLabel.text = errorMessgeText
     }
 }
