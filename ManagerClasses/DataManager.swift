@@ -53,8 +53,7 @@ class DataManager {
             
             switch Result {
             case .success(let jsonResponse):
-//                var userActivation = UserDeviceDetails()
-//                var userActivation =  UserDeviceDetails.convertJsonToObject(jsonString: jsonResponse)!
+
                 var userActivation =  UserDeviceDetails.convertJsonToObject(jsonString: jsonResponse, deviceId: userDetailDict["deviceid"] as! String)!
                 
                 closure(.success(userActivation))

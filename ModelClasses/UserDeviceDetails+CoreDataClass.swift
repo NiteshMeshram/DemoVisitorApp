@@ -2,7 +2,7 @@
 //  UserDeviceDetails+CoreDataClass.swift
 //  DemoVisitorApp
 //
-//  Created by Nitesh Meshram on 04/09/18.
+//  Created by Nitesh Meshram on 09/09/18.
 //  Copyright © 2018 V2Solutions. All rights reserved.
 //
 //
@@ -11,16 +11,15 @@ import Foundation
 import CoreData
 import SwiftyJSON
 
-
 @objc(UserDeviceDetails)
 public class UserDeviceDetails: NSManagedObject {
-    
+
     static func createDeviceEntity() {
         
         let context = CoreDataStack.sharedInstance.persistentContainer.viewContext
         if let deviceEntity = NSEntityDescription.insertNewObject(forEntityName: "UserDeviceDetails", into: context) as? UserDeviceDetails {
             
-//            deviceEntity.deviceUniqueId = UIDevice.current.identifierForVendor?.uuidString
+            //            deviceEntity.deviceUniqueId = UIDevice.current.identifierForVendor?.uuidString
             
             if UserDefaults.standard.hasValue(forKey: "deviceUDID") {
                 let defaults = UserDefaults.standard
@@ -195,6 +194,26 @@ public class UserDeviceDetails: NSManagedObject {
                             userDevice.hasError = errorCode
                         }
                         
+                        /*
+                         
+                         errorCode: String?
+                         errorMessage: String?
+                         errorHeading: String?
+                         
+                         */
+                        
+                        if let errorStatus = dict["status"]?.stringValue {
+                            userDevice.errorCode = errorStatus
+                        }
+                        
+                        if let errorHeading = dict["errorHeading"]?.stringValue {
+                            userDevice.errorHeading = errorHeading
+                        }
+                        
+                        if let errorMessage = dict["errorMessage"]?.stringValue {
+                            userDevice.errorMessage = errorMessage
+                        }
+                        
                         do {
                             try context.save()
                         } catch let error {
@@ -210,5 +229,6 @@ public class UserDeviceDetails: NSManagedObject {
         }
         return nil
     }
+    
     
 }

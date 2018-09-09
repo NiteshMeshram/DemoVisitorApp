@@ -2,7 +2,7 @@
 //  UserDeviceDetails+CoreDataProperties.swift
 //  DemoVisitorApp
 //
-//  Created by Nitesh Meshram on 04/09/18.
+//  Created by Nitesh Meshram on 09/09/18.
 //  Copyright © 2018 V2Solutions. All rights reserved.
 //
 //
@@ -23,5 +23,8 @@ extension UserDeviceDetails {
     @NSManaged public var hasError: String?
     @NSManaged public var topline1text: String?
     @NSManaged public var topline2text: String?
+    @NSManaged public var errorCode: String?
+    @NSManaged public var errorMessage: String?
+    @NSManaged public var errorHeading: String?
 
 }

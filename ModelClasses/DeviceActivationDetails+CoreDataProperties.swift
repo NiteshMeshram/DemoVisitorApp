@@ -2,7 +2,7 @@
 //  DeviceActivationDetails+CoreDataProperties.swift
 //  DemoVisitorApp
 //
-//  Created by Nitesh Meshram on 04/09/18.
+//  Created by Nitesh Meshram on 09/09/18.
 //  Copyright © 2018 V2Solutions. All rights reserved.
 //
 //
@@ -24,6 +24,7 @@ extension DeviceActivationDetails {
     @NSManaged public var appuiShowcheckoutbtn: String?
     @NSManaged public var checkoutmessage: String?
     @NSManaged public var deviceUniqueId: String?
+    @NSManaged public var errorMessage: String?
     @NSManaged public var hasError: String?
     @NSManaged public var isAgreement: Bool
     @NSManaged public var isRepeated: Bool
@@ -31,6 +32,7 @@ extension DeviceActivationDetails {
     @NSManaged public var logoURL: String?
     @NSManaged public var responseApikey: String?
     @NSManaged public var welcometxt: String?
-    @NSManaged public var errorMessage: String?
+    @NSManaged public var errorCode: String?
+    @NSManaged public var errorHeading: String?
 
 }

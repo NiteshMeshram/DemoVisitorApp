@@ -2,7 +2,7 @@
 //  DeviceActivationDetails+CoreDataClass.swift
 //  DemoVisitorApp
 //
-//  Created by Nitesh Meshram on 04/09/18.
+//  Created by Nitesh Meshram on 09/09/18.
 //  Copyright © 2018 V2Solutions. All rights reserved.
 //
 //
@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 import SwiftyJSON
 
-
 @objc(DeviceActivationDetails)
 public class DeviceActivationDetails: NSManagedObject {
 
+    
     static func convertJsonToObject(jsonString: JSON, userDeviceId: String) -> DeviceActivationDetails? {
         if let errorDict = jsonString["error"].dictionary {
             
@@ -58,9 +58,21 @@ public class DeviceActivationDetails: NSManagedObject {
                             }
                             
                         }
-                        
+
                         if let errorCode = errorDict["hasError"]?.stringValue {
                             activationEntity.hasError = errorCode
+                        }
+                        
+                        if let errorStatus = dict["status"]?.stringValue {
+                            activationEntity.errorCode = errorStatus
+                        }
+                        
+                        if let errorHeading = dict["errorHeading"]?.stringValue {
+                            activationEntity.errorHeading = errorHeading
+                        }
+                        
+                        if let errorMessage = dict["errorMessage"]?.stringValue {
+                            activationEntity.errorMessage = errorMessage
                         }
                         
                         do {
@@ -87,6 +99,17 @@ public class DeviceActivationDetails: NSManagedObject {
                         activationEntity.errorMessage = errorMessage
                     }
                     
+                    if let dict = jsonString["response"].dictionary {
+                        if let errorStatus = dict["status"]?.stringValue {
+                            activationEntity.errorCode = errorStatus
+                            
+                            if activationEntity.errorCode == "101" {
+                                activationEntity.errorHeading = "Device not paired"
+                            }
+                            
+                        }
+                    }
+                    
                     do {
                         try CoreDataStack.sharedInstance.persistentContainer.viewContext.save()
                     } catch let error {
@@ -98,5 +121,6 @@ public class DeviceActivationDetails: NSManagedObject {
         }
         return nil
     }
+    
     
 }

@@ -16,6 +16,16 @@ class BaseviewController: UIViewController {
 //    var isInPortrait = false
 //
     
+    func showValidationAlert(title: String, message: String) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            let appDelegate  = UIApplication.shared.delegate as? AppDelegate
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     
 }
 

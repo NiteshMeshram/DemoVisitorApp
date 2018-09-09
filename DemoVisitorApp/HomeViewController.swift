@@ -27,6 +27,9 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.activationCodeText.isEnabled = false
+
+        
         self.activationCodeText.text = self.userActivation?.activation_code
         self.topLine1Label.text = self.userActivation?.topline1text
         self.topLine2Label.text = self.userActivation?.topline2text
@@ -88,6 +91,14 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
         }
     }
     
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return false
+    }
+    
+//    override func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+//        return false
+//    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -122,14 +133,22 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
                 }
                 else {
                     
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    
-                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "errorScreen") as! ErrorViewController
-                    
-                    if let errorMsg = activationDetails.errorMessage {
-                        initialViewController.errorMessgeText = errorMsg
+                    if activationDetails.errorCode == "203" {
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        
+                        let initialViewController = storyboard.instantiateViewController(withIdentifier: "errorScreen") as! ErrorViewController
+                        
+                        if let errorMsg = activationDetails.errorMessage {
+                            initialViewController.errorMessgeText = errorMsg
+                        }
+                        self.present(initialViewController, animated: true, completion: nil)
                     }
-                    self.present(initialViewController, animated: true, completion: nil)
+                    else {
+                        self.showValidationAlert(title: activationDetails.errorHeading!, message: activationDetails.errorMessage!)
+                    }
+                    
+                    
+                    
                 }
                 
 
@@ -144,4 +163,10 @@ class HomeViewController: BaseviewController,UITextFieldDelegate {
         
     }
     
+}
+extension UITextField {
+    
+    override open func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return false
+    }
 }

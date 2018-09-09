@@ -8,6 +8,8 @@
         <attribute name="appuiShowcheckoutbtn" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="checkoutmessage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="deviceUniqueId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="errorCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="errorHeading" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="errorMessage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasError" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isAgreement" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -21,12 +23,15 @@
         <attribute name="activatebtntxt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="activation_code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="deviceUniqueId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="errorCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="errorHeading" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="errorMessage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasError" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="topline1text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="topline2text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DeviceActivationDetails" positionX="-54" positionY="27" width="128" height="270"/>
-        <element name="UserDeviceDetails" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="DeviceActivationDetails" positionX="-54" positionY="27" width="128" height="300"/>
+        <element name="UserDeviceDetails" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>
