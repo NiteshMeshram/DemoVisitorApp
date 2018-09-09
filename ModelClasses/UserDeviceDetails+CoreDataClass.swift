@@ -225,7 +225,30 @@ public class UserDeviceDetails: NSManagedObject {
                     }
                     
                 }
+                else {
+                    print("Error Data ")
+                   
+                    if let dict = jsonString["response"].dictionary {
+                        if let errorStatus = dict["status"]?.stringValue {
+                            userDevice.errorCode = errorStatus
+                        }
+                        
+                        if let errorHeading = dict["errorHeading"]?.stringValue {
+                            userDevice.errorHeading = errorHeading
+                        }
+                        
+                        if let errorMessage = dict["errDesc"]?.stringValue {
+                            userDevice.errorMessage = errorMessage
+                        }
+                        
+                        return userDevice
+                    }
+                    
+                    
+                   
+                }
             }
+            
         }
         return nil
     }

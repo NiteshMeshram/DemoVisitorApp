@@ -23,6 +23,8 @@ class LoadingScreen: BaseviewController {
         var loginDict = [String: Any]()
         if let deviceInfo = UserDeviceDetails.checkDeviceId() {
             loginDict = ["a":"device-info" ,"deviceid":deviceInfo.deviceUniqueId!]
+            //
+//            loginDict = ["a":"device-info" ,"deviceid":"0B4B6F5C-D6A7-47EC-AFE3-AE209CA755F0"]
         }
         
         print(loginDict)
@@ -45,11 +47,12 @@ class LoadingScreen: BaseviewController {
                 else {
                     //                    errorScreen ==> errorScreenSegue
                     
-                    if userActivation.errorCode == "102" || userActivation.errorCode == "203"   {
-                        self.showValidationAlert(title: userActivation.errorHeading!, message: userActivation.errorMessage!)
+                    if userActivation.errorCode == "203"   {
+                        self.performSegue(withIdentifier: "errorScreenSegue", sender: userActivation)
+                        
                     }else {
                         
-                        self.performSegue(withIdentifier: "errorScreenSegue", sender: nil)
+                        self.showValidationAlert(title: userActivation.errorHeading!, message: userActivation.errorMessage!)
                     }
                 }
                 break
@@ -91,6 +94,12 @@ class LoadingScreen: BaseviewController {
             homeViewController.userActivation = deviceDetails
             //            vc.data = "Data you want to pass"
             //Data has to be a variable name in your RandomViewController
+        }
+        if segue.identifier == "errorScreenSegue" {
+            var errorViewController = segue.destination as! ErrorViewController
+            let deviceDetails = sender as!  UserDeviceDetails
+            errorViewController.errorMessgeText = deviceDetails.errorMessage
+            
         }
     }
     
