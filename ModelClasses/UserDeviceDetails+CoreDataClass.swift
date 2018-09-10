@@ -114,57 +114,6 @@ public class UserDeviceDetails: NSManagedObject {
         
     }
     
-    static func convertJsonToObject(jsonString: JSON) -> UserDeviceDetails? {
-        
-        if let errorDict = jsonString["error"].dictionary {
-            
-            if errorDict["hasError"]?.stringValue == VisitorError.success.rawValue {
-                
-                if let dict = jsonString["response"].dictionary {
-                    let context = CoreDataStack.sharedInstance.persistentContainer.viewContext
-                    if let deviceEntity = NSEntityDescription.insertNewObject(forEntityName: "UserDeviceDetails", into: context) as? UserDeviceDetails {
-                        
-                        let uuid: String? = UserDefaults.standard.object(forKey: "userDeviceId") as? String
-                        deviceEntity.deviceUniqueId = uuid
-                        
-                        if let topLineText = dict["topline1text"]?.stringValue{
-                            deviceEntity.topline1text = topLineText
-                        }
-                        
-                        if let topline2text = dict["topline2text"]?.stringValue{
-                            deviceEntity.topline2text = topline2text
-                        }
-                        
-                        if let activation_code = dict["activation_code"]?.stringValue{
-                            deviceEntity.activation_code = activation_code
-                        }
-                        
-                        if let activatebtntxt = dict["activatebtntxt"]?.stringValue{
-                            deviceEntity.activatebtntxt = activatebtntxt
-                        }
-                        
-                        if let errorCode = errorDict["hasError"]?.stringValue {
-                            deviceEntity.hasError = errorCode
-                        }
-                        
-                        do {
-                            try CoreDataStack.sharedInstance.persistentContainer.viewContext.save()
-                        } catch let error {
-                            print(error)
-                        }
-                        
-                        return deviceEntity
-                    }
-                    
-                }
-                
-            }
-        }
-        
-        return nil
-    }
-    
-    
     static func convertJsonToObject(jsonString: JSON, deviceId: String) -> UserDeviceDetails? {
         
         if let userDevice = checkDataExistOrNot() {
@@ -229,6 +178,11 @@ public class UserDeviceDetails: NSManagedObject {
                     print("Error Data ")
                    
                     if let dict = jsonString["response"].dictionary {
+                        
+                        if let errorCode = errorDict["hasError"]?.stringValue {
+                            userDevice.hasError = errorCode
+                        }
+                        
                         if let errorStatus = dict["status"]?.stringValue {
                             userDevice.errorCode = errorStatus
                         }

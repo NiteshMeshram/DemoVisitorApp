@@ -24,7 +24,18 @@ class ThankyouViewController: BaseviewController {
         // Do any additional setup after loading the view, typically from a nib.
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { // change 2 to desired number of seconds
             // Your code with delay
+            
+            if UserDefaults.standard.hasValue(forKey: "fromThankyouPage") {
+                
+            }
+            else {
+                let defaults = UserDefaults.standard
+                defaults.set(true, forKey: "fromThankyouPage")
+                defaults.synchronize()
+            }
+            
             self.navigationController?.popToRootViewController(animated: true)
+            
             
         }
     }

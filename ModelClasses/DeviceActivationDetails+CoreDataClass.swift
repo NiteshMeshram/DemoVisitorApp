@@ -15,6 +15,28 @@ import SwiftyJSON
 public class DeviceActivationDetails: NSManagedObject {
 
     
+    static func checkDataExistOrNot() -> DeviceActivationDetails? {
+        
+        let context = CoreDataStack.sharedInstance.persistentContainer.viewContext
+        do {
+            let fetchRequest : NSFetchRequest<DeviceActivationDetails> = DeviceActivationDetails.fetchRequest()
+            /*
+             let uuid: String? = UserDefaults.standard.object(forKey: "userDeviceId") as? String
+             fetchRequest.predicate = NSPredicate(format: "deviceUniqueId == %@", uuid!)
+             */
+            let fetchedResults = try context.fetch(fetchRequest)
+            if let deviceActivation = fetchedResults.first {
+                return deviceActivation
+            }
+        }
+        catch {
+            print ("fetch task failed", error)
+        }
+        return nil
+        
+    }
+    
+    
     static func convertJsonToObject(jsonString: JSON, userDeviceId: String) -> DeviceActivationDetails? {
         if let errorDict = jsonString["error"].dictionary {
             
@@ -76,7 +98,7 @@ public class DeviceActivationDetails: NSManagedObject {
                         }
                         
                         do {
-                            try CoreDataStack.sharedInstance.persistentContainer.viewContext.save()
+                            try context.save()
                         } catch let error {
                             print(error)
                         }
@@ -111,7 +133,7 @@ public class DeviceActivationDetails: NSManagedObject {
                     }
                     
                     do {
-                        try CoreDataStack.sharedInstance.persistentContainer.viewContext.save()
+                        try context.save()
                     } catch let error {
                         print(error)
                     }

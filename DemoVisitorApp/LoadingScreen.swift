@@ -12,7 +12,7 @@ import UIKit
 
 class LoadingScreen: BaseviewController {
     @IBOutlet weak var loadImageView: UIImageView!
-    
+    var isFromThankyouPage = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,17 +35,27 @@ class LoadingScreen: BaseviewController {
             switch Result {
             case .success(let userActivation):
                 
-                if UserDefaults.standard.hasValue(forKey: "loggedInUser") {
-                    print("loggedInUser") //signInOutScreen
-                    self.performSegue(withIdentifier: "signInOutScreenSegue", sender: nil)
-                    
-                }else if userActivation.hasError == VisitorError.success.rawValue{
+                
+                //else
+                
+                if userActivation.hasError == VisitorError.success.rawValue{
                     // activationView
-                    self.performSegue(withIdentifier: "activationScreenSegue", sender: userActivation)
+                    if UserDefaults.standard.hasValue(forKey: "loggedInUser") {
+                        print("loggedInUser") //signInOutScreen
+                        self.performSegue(withIdentifier: "signInOutScreenSegue", sender: nil)
+                        
+                    } else {
+                        self.performSegue(withIdentifier: "activationScreenSegue", sender: userActivation)
+                    }
                     
                 }
                 else {
-                    //                    errorScreen ==> errorScreenSegue
+                    
+                    if UserDefaults.standard.hasValue(forKey: "loggedInUser") {
+                        var userDefaults = UserDefaults.standard
+                        userDefaults.removeObject(forKey: "loggedInUser")
+                        userDefaults.synchronize()
+                    }
                     
                     if userActivation.errorCode == "203"   {
                         self.performSegue(withIdentifier: "errorScreenSegue", sender: userActivation)
@@ -63,6 +73,17 @@ class LoadingScreen: BaseviewController {
                 
             }
         })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if UserDefaults.standard.hasValue(forKey: "fromThankyouPage") {
+            var userDefaults = UserDefaults.standard
+            userDefaults.removeObject(forKey: "fromThankyouPage")
+            userDefaults.synchronize()
+            self.performSegue(withIdentifier: "signInOutScreenSegue", sender: nil)
+            
+        }
+       
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
